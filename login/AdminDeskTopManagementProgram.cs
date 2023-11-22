@@ -4,25 +4,25 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using Oracle.DataAccess.Client;
 
 namespace login
 {
-    public partial class ClientDeskTopManagementProgram : Form
+    public partial class AdminDeskTopManagementProgram : Form
     {
-        public ClientDeskTopManagementProgram()
+        public AdminDeskTopManagementProgram()
         {
+            
             InitializeComponent();
-            DisableCloseButton(this.Handle);
+            DisableCloseButton(this.Handle); // 이거 순서 잘못놓으면 작동 안하더라;;
         }
 
-        #region WindowsAPI 
-        //고객데스크탑관리프로그램은 종료되면 안된다.
-        //이를위해 닫기버튼을 비활성화한다.
+        #region WindowsAPI
+        //관리자데스크탑관리프로그램 또한 종료되면 안된다.
+        //이를 위해 닫기 버튼을 비활성화한다.
         [DllImport("user32.dll")]
         public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
 
@@ -43,9 +43,5 @@ namespace login
             EnableMenuItem(hMenu, SC_CLOSE, MF_GRAYED);
         }
 
-        private void CDTMPEmergencyExitBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

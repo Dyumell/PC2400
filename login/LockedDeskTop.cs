@@ -80,10 +80,26 @@ namespace login
 
             if (ResultRows.Length > 0 && ResultRows[0]["user_pwd"].ToString() == txtLoginPwd.Text) // 첫번쨰 조건. 검색한 user_id가 존재, 
             {                                                                                      // 두번쨰 조건 검색된 user_id의 user_pwd가 txtloginpwd와 일치 
-                if (Convert.ToInt32(ResultRows[0]["remained_time"]) > 0) // Number 자료형은 Conver.ToInt32 로 형변환해야함.
+               if (ResultRows[0]["user_type_code"].ToString() == "USER03")
                 {
-                    MessageBox.Show("환영합니다");
+                    MessageBox.Show("주인이시여 명령을..!");
                     hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
+                    AdminDeskTopManagementProgram adminDeskTopManagementProgram = new AdminDeskTopManagementProgram();
+                    adminDeskTopManagementProgram.Show();
+                    this.Hide(); // 잠금화면을 닫음, 사실 숨김.
+                    adminDeskTopManagementProgram.FormClosed += (s, args) => this.Close(); // 새창이 꺼질시, 이 창도 같이 닫힘.
+                }
+                
+                
+                
+                
+                else if (Convert.ToInt32(ResultRows[0]["remained_time"]) > 0) // Number 자료형은 Conver.ToInt32 로 형변환해야함.
+                {
+                    object userTypeCodeValue = ResultRows[0]["user_type_code"];
+                    string userTypeCodeString = userTypeCodeValue.ToString();
+                    MessageBox.Show(userTypeCodeString);
+                    hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
+                    
 
                     ClientDeskTopManagementProgram clientDeskTopManagementProgram = new ClientDeskTopManagementProgram();
                     clientDeskTopManagementProgram.Show();

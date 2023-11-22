@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDeskTopManagementProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDeskTopManagementProgram.Designer.cs">
+      <DependentUpon>AdminDeskTopManagementProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientDeskTopManagementProgram.cs">
       <SubType>Form</SubType>
     </Compile>

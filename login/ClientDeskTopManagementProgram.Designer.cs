@@ -49,6 +49,7 @@
             this.Controls.Add(this.CDTMPEmergencyExitBtn);
             this.Name = "ClientDeskTopManagementProgram";
             this.Text = "ClientManagementProgram";
+            this.MaximizeBox = false;
             this.ResumeLayout(false);
 
 }
