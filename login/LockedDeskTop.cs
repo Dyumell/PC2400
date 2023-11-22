@@ -84,7 +84,12 @@ namespace login
                 {
                     MessageBox.Show("환영합니다");
                     hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
-                  
+
+                    ClientDeskTopManagementProgram clientDeskTopManagementProgram = new ClientDeskTopManagementProgram();
+                    clientDeskTopManagementProgram.Show();
+                    this.Hide(); // 잠금화면을 닫음, 사실 숨김.
+                    clientDeskTopManagementProgram.FormClosed += (s, args) => this.Close(); // 새창이 꺼질시, 이 창도 같이 닫힘.
+
                 }
 
                 else
