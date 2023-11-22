@@ -78,8 +78,8 @@ namespace login
             DataRow[] ResultRows
             = userTable.Select("user_id = '" + txtLoginID.Text + "'");
 
-            if (ResultRows.Length > 0 && ResultRows[0]["user_pwd"].ToString() == txtLoginPwd.Text)
-            {
+            if (ResultRows.Length > 0 && ResultRows[0]["user_pwd"].ToString() == txtLoginPwd.Text) // 첫번쨰 조건. 검색한 user_id가 존재, 
+            {                                                                                      // 두번쨰 조건 검색된 user_id의 user_pwd가 txtloginpwd와 일치 
                 if (Convert.ToInt32(ResultRows[0]["remained_time"]) > 0) // Number 자료형은 Conver.ToInt32 로 형변환해야함.
                 {
                     MessageBox.Show("환영합니다");
