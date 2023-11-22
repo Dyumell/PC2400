@@ -77,6 +77,9 @@
     <Compile Include="UserRegister.Designer.cs">
       <DependentUpon>UserRegister.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminDeskTopManagementProgram.resx">
+      <DependentUpon>AdminDeskTopManagementProgram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientDeskTopManagementProgram.resx">
       <DependentUpon>ClientDeskTopManagementProgram.cs</DependentUpon>
     </EmbeddedResource>

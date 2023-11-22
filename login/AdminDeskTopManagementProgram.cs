@@ -13,11 +13,13 @@ namespace login
 {
     public partial class AdminDeskTopManagementProgram : Form
     {
-        public AdminDeskTopManagementProgram()
+        DataRow[] loginedRow; // 로그인한 계정정보를 넘겨받기위한 변수
+        public AdminDeskTopManagementProgram(DataRow[] resultRows) // 로그인한 계정정보를 넘겨받는 생성자
         {
             
             InitializeComponent();
             DisableCloseButton(this.Handle); // 이거 순서 잘못놓으면 작동 안하더라;;
+            this.loginedRow = resultRows; //넘겨받음
         }
 
         #region WindowsAPI
@@ -43,5 +45,14 @@ namespace login
             EnableMenuItem(hMenu, SC_CLOSE, MF_GRAYED);
         }
 
+        private void AdminDeskTopManagementProgramEmergencyExitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TestADTMPRecievedDataBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("로그인된 관리자 계정은 " + loginedRow[0]["user_id"] + " 입니다");
+        }
     }
 }
