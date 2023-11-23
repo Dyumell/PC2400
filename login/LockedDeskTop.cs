@@ -160,5 +160,37 @@ namespace login
         {
             Close(); // 테스트용 종료
         }
+
+        private void button1_Click(object sender, EventArgs e) // 관리자 테스트를위한 로그인이 귀찮다
+
+        {
+            hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
+            DataRow[] resultRows = new DataRow[1];
+            DataTable testTable = new DataTable();
+            testTable.Columns.Add("user_id");
+            resultRows[0] = testTable.NewRow();
+            resultRows[0]["user_id"] = "이것은 관리자용 테스트 접근이다.";
+            
+            AdminDeskTopManagementProgram adminDeskTopManagementProgram = new AdminDeskTopManagementProgram(resultRows);
+            adminDeskTopManagementProgram.Show();
+            adminDeskTopManagementProgram.FormClosed += (s, args) => this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)  // 고객 테스트를위한 로그인이 귀찮다
+        {
+            hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
+
+            DataRow[] resultRows = new DataRow[1];              
+            DataTable testTable = new DataTable();
+            testTable.Columns.Add("user_id");
+            resultRows[0] = testTable.NewRow();
+            resultRows[0]["user_id"] = "이것은 고객용 테스트 접근이다.";
+
+            ClientDeskTopManagementProgram clientDeskTopManagementProgram = new ClientDeskTopManagementProgram(resultRows);
+            clientDeskTopManagementProgram.Show();
+            clientDeskTopManagementProgram.FormClosed += (s, args) => this.Close();
+
+
+        }
     }
 }

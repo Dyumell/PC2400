@@ -39,6 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.connectTest = new System.Windows.Forms.Button();
             this.emergencyExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +58,9 @@
             this.txtLoginPwd.Font = new System.Drawing.Font("굴림", 24F);
             this.txtLoginPwd.Location = new System.Drawing.Point(301, 95);
             this.txtLoginPwd.Name = "txtLoginPwd";
+            this.txtLoginPwd.PasswordChar = '*';
             this.txtLoginPwd.Size = new System.Drawing.Size(266, 53);
             this.txtLoginPwd.TabIndex = 2;
-            this.txtLoginPwd.PasswordChar = '*'; // 이걸 사용하면 텍스트박스에서 출력되는 문자는 전부 * 하지만 저장된 데이터는 입력된 데이터와 동일.
             // 
             // LoginBtn
             // 
@@ -160,12 +162,34 @@
             this.emergencyExit.UseVisualStyleBackColor = true;
             this.emergencyExit.Click += new System.EventHandler(this.emergencyExit_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(805, 124);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 39);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "관리자접속";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(805, 169);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 39);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "고객접속";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // LockedDeskTop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(84)))), ((int)(((byte)(155)))));
             this.ClientSize = new System.Drawing.Size(965, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.emergencyExit);
             this.Controls.Add(this.connectTest);
             this.Controls.Add(this.label3);
@@ -195,6 +219,8 @@
         private System.Windows.Forms.Button connectTest;
         private System.Windows.Forms.Button userRegisterBtn;
         private System.Windows.Forms.Button emergencyExit;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
