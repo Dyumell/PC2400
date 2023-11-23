@@ -56,6 +56,12 @@
     <Compile Include="AdminDeskTopManagementProgram.Designer.cs">
       <DependentUpon>AdminDeskTopManagementProgram.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePwdForm.Designer.cs">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientDeskTopManagementProgram.cs">
       <SubType>Form</SubType>
     </Compile>
