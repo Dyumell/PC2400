@@ -32,6 +32,7 @@
             this.TestADTMPRecievedDataBtn = new System.Windows.Forms.Button();
             this.labelADTMPUserID = new System.Windows.Forms.Label();
             this.SearchAccountBtn = new System.Windows.Forms.Button();
+            this.SitManagementBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AdminDeskTopManagementProgramEmergencyExitBtn
@@ -73,11 +74,22 @@
             this.SearchAccountBtn.UseVisualStyleBackColor = true;
             this.SearchAccountBtn.Click += new System.EventHandler(this.SearchAccountBtn_Click);
             // 
+            // SitManagementBtn
+            // 
+            this.SitManagementBtn.Location = new System.Drawing.Point(51, 197);
+            this.SitManagementBtn.Name = "SitManagementBtn";
+            this.SitManagementBtn.Size = new System.Drawing.Size(138, 99);
+            this.SitManagementBtn.TabIndex = 4;
+            this.SitManagementBtn.Text = "자리관리";
+            this.SitManagementBtn.UseVisualStyleBackColor = true;
+            this.SitManagementBtn.Click += new System.EventHandler(this.SitManagementBtn_Click);
+            // 
             // AdminDeskTopManagementProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SitManagementBtn);
             this.Controls.Add(this.SearchAccountBtn);
             this.Controls.Add(this.labelADTMPUserID);
             this.Controls.Add(this.TestADTMPRecievedDataBtn);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button TestADTMPRecievedDataBtn;
         private System.Windows.Forms.Label labelADTMPUserID;
         private System.Windows.Forms.Button SearchAccountBtn;
+        private System.Windows.Forms.Button SitManagementBtn;
     }
 }

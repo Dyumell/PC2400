@@ -15,7 +15,7 @@ using Oracle.DataAccess.Client;
 
 
 /*
- * 개선요구사항: 잠금화면 구현.
+ * 개선요구사항: ******* 이미 로그인 되었을시, 접근 거부 뜨는거. boolean 타입의 사용중여부 칼럼 추가 요망.
  */
 namespace login
 {

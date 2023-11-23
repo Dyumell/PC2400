@@ -66,5 +66,11 @@ namespace login
             SearchAccount searchAccount = new SearchAccount();
             searchAccount.Show();
         }
+
+        private void SitManagementBtn_Click(object sender, EventArgs e)
+        {
+            SitManagementForm sitManagementForm = new SitManagementForm();
+            sitManagementForm.Show();
+        }
     }
 }
