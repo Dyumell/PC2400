@@ -44,7 +44,7 @@ namespace login
                     DataSet DS = new DataSet();
 
                     DBAdapter.Fill(DS, "user_account_query");
-                    DataTable userTable = DS.Tables["user_account_query"]; //
+                    DataTable userTable = DS.Tables["user_account_query"]; // 사용자 정의 클래스로 계정정보 2종류를 찾는 걸 클래스화.
 
                     DataRow newRow;
 

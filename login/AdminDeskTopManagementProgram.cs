@@ -54,5 +54,17 @@ namespace login
         {
             MessageBox.Show("로그인된 관리자 계정은 " + loginedRow[0]["user_id"] + " 입니다");
         }
+
+        private void AdminDeskTopManagementProgram_Load(object sender, EventArgs e)
+        {
+            labelADTMPUserID.Text = "관리자계정 : " + loginedRow[0]["user_id"].ToString();
+        }
+
+        private void SearchAccountBtn_Click(object sender, EventArgs e)
+        {
+            //!! 성격이 다른 ( 함수, 변수 ) 를 하나로 묶어주는 것을 클래스라함.
+            SearchAccount searchAccount = new SearchAccount();
+            searchAccount.Show();
+        }
     }
 }
