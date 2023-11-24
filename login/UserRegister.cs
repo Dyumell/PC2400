@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Client; 
 
 /*
  *  개선요구사항 : (1)비밀번호 찿기 버튼, Twillo와 연동 (2)비밀번호에규칙추가 (3)전화번호중복허용X

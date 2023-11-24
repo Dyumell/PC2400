@@ -29,7 +29,9 @@ namespace login
 
         private LowLevelKeyboardProc lowLevelKeyboardProc = HookProc;
 
-        #endregion
+        #endregion 
+        // 운영체제에 접근하기위한 논리적 그룹. ( alt + tab 은 운영체제에서 다루는 키조합, 이것을 가로채려면 아래의 dll 속성이 필요함. 
+        // 이정도만 알아두고, 아래 코드는 이해하려고 하지말기. 나중에 따로 후킹에 대해 공부하는 걸 추천함
 
         // 구조체 크기를 맞춰줘야 올바른 값을 받을 수 있습니다.
         // 메모리의 정렬과 패딩 문제.
