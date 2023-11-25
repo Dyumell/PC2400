@@ -22,8 +22,8 @@ namespace login
             DBManager DBMClient = new DBManager(command);
             DBMClient.DS.Clear();
             DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
-            DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
-            DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+            DBMClient.DTable = DBMClient.DS.Tables["user_account_login"];
+            DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
 
             MessageBox.Show(DBMClient.ResultRows[0]["remained_time"].ToString());
             
@@ -34,8 +34,8 @@ namespace login
             DBManager DBMClient = new DBManager(command);
             DBMClient.DS.Clear();
             DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
-            DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
-            DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+            DBMClient.DTable = DBMClient.DS.Tables["user_account_login"];
+            DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
             remainedTime = Convert.ToInt32(DBMClient.ResultRows[0]["remained_time"]);
             return ConvertIntToTime(remainedTime);
         }
@@ -56,8 +56,8 @@ namespace login
                 DBMClient.DS.Clear();
                 DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
 
-                DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
-                DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+                DBMClient.DTable = DBMClient.DS.Tables["user_account_login"];
+                DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
 
                 remainedTime = Convert.ToInt32(DBMClient.ResultRows[0]["remained_time"]);
                 remainedTime--;
@@ -66,6 +66,7 @@ namespace login
                 DBMClient.DBAdapter.Update(DBMClient.DS, "user_account_login");
 
                 DBMClient.TransactionOpen();
+
 
                 try
                 {
