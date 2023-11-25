@@ -16,9 +16,7 @@ namespace login
 
     public partial class ClientDeskTopManagementProgram : Form // 고려사항 : 잔여시간 30 , 10 , 5 , 1 분때에 메세지 박스 출력
     {
-        
-       
-        public void CheckRemainedTime()
+        public void TestShowRemainedTime()
         {
             string command = "SELECT user_id,remained_time FROM user_account_login";
             DBManager DBMClient = new DBManager(command);
@@ -27,19 +25,19 @@ namespace login
             DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
             DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
 
-
-            if (DBMClient.ResultRows.Length > 0)
-            {
-                // 일치하는 행이 있을 때만 메시지 박스에 값을 표시
-                MessageBox.Show(DBMClient.ResultRows[0]["remained_time"].ToString());
-                
-            }
-            else
-            {
-                // 일치하는 행이 없을 경우 메시지 박스에 오류 메시지 표시
-                MessageBox.Show("테스트접근입니다");
-            }
-
+            MessageBox.Show(DBMClient.ResultRows[0]["remained_time"].ToString());
+            
+        }
+        public string CheckRemainedTime()
+        {
+            string command = "SELECT user_id,remained_time FROM user_account_login";
+            DBManager DBMClient = new DBManager(command);
+            DBMClient.DS.Clear();
+            DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
+            DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
+            DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+            remainedTime = Convert.ToInt32(DBMClient.ResultRows[0]["remained_time"]);
+            return ConvertIntToTime(remainedTime);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -93,12 +91,12 @@ namespace login
         public ClientDeskTopManagementProgram(DataRow[] resultRows) // 로그인된 계정정보를 받기위한 생성자
         {
 
-
+            
             InitializeComponent();
            
             DisableCloseButton(this.Handle);
             this.loginedRow = resultRows;
-            labelCDTMPRemainedTime.Text = ConvertIntToTime(remainedTime);
+            
         }
 
         public ClientDeskTopManagementProgram(string accessedSitID)
@@ -166,27 +164,31 @@ namespace login
 
         private void ClientDeskTopManagementProgram_Load(object sender, EventArgs e)
         {
+           
             timer1.Start();
+            CheckRemainedTime();
+            labelCDTMPRemainedTime.Text = ConvertIntToTime(remainedTime);
             labelCDTMPSitNo.Text = accessedSitID;
+            labelCDTMPUserID.Text = "사용자 계정 : " + loginedRow[0]["user_id"].ToString();
             MessageBox.Show(accessedSitID);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // 잔여시간 출력 테스트버튼
         {
-            CheckRemainedTime();
+            TestShowRemainedTime();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // 잔여시간 차감 테스트버튼
         {
             UpdateRemainedTime();
         }
 
-        private void ClientDeskTopManagementProgram_FormClosed(object sender, FormClosedEventArgs e)
+        private void ClientDeskTopManagementProgram_FormClosed(object sender, FormClosedEventArgs e) // 폼 닫힐 시 타이머를 종료
         {
             timer1.Stop();
         }
 
-        private string ConvertIntToTime(int remainedTime)
+        private string ConvertIntToTime(int remainedTime) // 0~ 9분을 :00 ~ :09 로 보이기위한 변환함수
         {
             int hour = remainedTime / 60;
             int minute = remainedTime % 60;

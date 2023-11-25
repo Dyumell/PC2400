@@ -33,6 +33,7 @@
             this.labelADTMPUserID = new System.Windows.Forms.Label();
             this.SearchAccountBtn = new System.Windows.Forms.Button();
             this.SitManagementBtn = new System.Windows.Forms.Button();
+            this.CreateStaffIDBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AdminDeskTopManagementProgramEmergencyExitBtn
@@ -47,7 +48,7 @@
             // 
             // TestADTMPRecievedDataBtn
             // 
-            this.TestADTMPRecievedDataBtn.Location = new System.Drawing.Point(565, 234);
+            this.TestADTMPRecievedDataBtn.Location = new System.Drawing.Point(587, 254);
             this.TestADTMPRecievedDataBtn.Name = "TestADTMPRecievedDataBtn";
             this.TestADTMPRecievedDataBtn.Size = new System.Drawing.Size(188, 103);
             this.TestADTMPRecievedDataBtn.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             // SearchAccountBtn
             // 
-            this.SearchAccountBtn.Location = new System.Drawing.Point(51, 59);
+            this.SearchAccountBtn.Location = new System.Drawing.Point(51, 100);
             this.SearchAccountBtn.Name = "SearchAccountBtn";
             this.SearchAccountBtn.Size = new System.Drawing.Size(138, 106);
             this.SearchAccountBtn.TabIndex = 3;
@@ -76,7 +77,7 @@
             // 
             // SitManagementBtn
             // 
-            this.SitManagementBtn.Location = new System.Drawing.Point(51, 197);
+            this.SitManagementBtn.Location = new System.Drawing.Point(51, 223);
             this.SitManagementBtn.Name = "SitManagementBtn";
             this.SitManagementBtn.Size = new System.Drawing.Size(138, 99);
             this.SitManagementBtn.TabIndex = 4;
@@ -84,11 +85,21 @@
             this.SitManagementBtn.UseVisualStyleBackColor = true;
             this.SitManagementBtn.Click += new System.EventHandler(this.SitManagementBtn_Click);
             // 
+            // CreateStaffIDBtn
+            // 
+            this.CreateStaffIDBtn.Location = new System.Drawing.Point(51, 348);
+            this.CreateStaffIDBtn.Name = "CreateStaffIDBtn";
+            this.CreateStaffIDBtn.Size = new System.Drawing.Size(124, 67);
+            this.CreateStaffIDBtn.TabIndex = 5;
+            this.CreateStaffIDBtn.Text = "직원 계정 생성";
+            this.CreateStaffIDBtn.UseVisualStyleBackColor = true;
+            // 
             // AdminDeskTopManagementProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CreateStaffIDBtn);
             this.Controls.Add(this.SitManagementBtn);
             this.Controls.Add(this.SearchAccountBtn);
             this.Controls.Add(this.labelADTMPUserID);
@@ -110,5 +121,6 @@
         private System.Windows.Forms.Label labelADTMPUserID;
         private System.Windows.Forms.Button SearchAccountBtn;
         private System.Windows.Forms.Button SitManagementBtn;
+        private System.Windows.Forms.Button CreateStaffIDBtn;
     }
 }
