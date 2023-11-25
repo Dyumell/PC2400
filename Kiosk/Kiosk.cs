@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Kiosk
 {
-    public partial class Form1 : Form
+    public partial class Kiosk : Form
     {
-        public Form1()
+        public Kiosk()
         {
             InitializeComponent();
+        }
+
+        private void Kiosk_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
