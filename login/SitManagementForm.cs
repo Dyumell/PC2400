@@ -22,6 +22,8 @@ namespace login
 
         int selectedSitNoIndex; /// 팦업 폼의 배열에 쓸 인덱스.
 
+        string controlName; // 버튼을 탐색할 때 쓸 변수;
+
         public string[] SitIDArray { get { return sitIDArray; } set { sitIDArray = value; } }
         public string[] SitPowerArray { get { return sitPowerArray; } set { sitPowerArray = value; } }
 
@@ -30,6 +32,9 @@ namespace login
 
         public int SelectedSitNoIndex { get { return selectedSitNoIndex; } set { selectedSitNoIndex = value; } }
 
+        string[] sitRemainedTime = new string[70];
+        
+        public string[] SitRemainedTime { get { return sitRemainedTime; } set { sitRemainedTime = value; } }
 
 
 
@@ -55,26 +60,91 @@ namespace login
         }
 
 
-        public void SitColorized() // 이걸 tick 을 1초 주기로 하기에는 컴퓨터가 힘들어하지 않을까... 라는 제 개인적인 생각입니다. 이것보다 더 잘 못짜겠어요.
+        public void SitColorized()
         {
+            // 버튼의 색 적용을 위한 전원상태, 고장상태 가져오는 코드
+            DBManager DBMSit = new DBManager("select pc_power, pc_malfunction from pc_sit_info");
+            DBMSit.DBAdapter.Fill(DBMSit.DS, "pc_sit_info");
+            DBMSit.DTable = DBMSit.DS.Tables["pc_sit_info"];
+
+            DBMSit.ResultRows = DBMSit.DTable.Select();
             for (int i = 0; i < 70; i++)
             {
-
-                if (sitPowerArray[i] == "켜짐")
+                if (DBMSit.ResultRows.Length > i) // 배열 길이 확인
                 {
-                    string controlName = "SitNo" + i;
+                    SitPowerArray[i] = DBMSit.ResultRows[i]["pc_power"].ToString();
+                    SitMalfunctionArray[i] = DBMSit.ResultRows[i]["pc_malfunction"].ToString();
+                }
+                else
+                {
+                    // 디버깅 메시지 출력
+                    Console.WriteLine($"Error: No data for index {i} in pc_sit_info");
+                }
+            }
+
+            // 라벨에 할당 할 잔여시간 가져오는 코드
+            DBManager DBMSitUsage = new DBManager("select remained_time from pc_sit_usage");
+            DBMSitUsage.DBAdapter.Fill(DBMSitUsage.DS, "remaindedTime");
+            DBMSitUsage.DTable = DBMSitUsage.DS.Tables["remaindedTime"];
+
+            DBMSitUsage.ResultRows = DBMSitUsage.DTable.Select();
+
+            int loopCount = Math.Min(70, DBMSitUsage.ResultRows.Length);
+
+            for (int i = 0; i < loopCount; i++)
+            {
+                SitRemainedTime[i] = DBMSitUsage.ResultRows[i]["remained_time"].ToString();
+            }
+                // 라벨에 할당 할 잔여시간 가져오는  코드
+
+                for (int i = 0; i < 70; i++)
+            {
+                if (SitPowerArray[i] == "켜짐")
+                {
+                    controlName = "SitNo" + (i + 1);
                     sitPowerOn[i] = controlName;
-                    
+
 
                     Control[] foundControls = this.Controls.Find(controlName, true);
                     if (foundControls.Length > 0 && foundControls[0] is Button)
                     {
                         Button targetButton = (Button)foundControls[0];
-                        targetButton.BackColor = Color.Purple; 
+                        targetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+                        targetButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+                    }
+
+                    controlName = "SitRemaindedTime" + (i + 1);
+
+                    foundControls = this.Controls.Find(controlName, true);
+                    if (foundControls.Length > 0 && foundControls[0] is Label)
+                    {
+                        Label targetLabel = (Label)foundControls[0];
+                        targetLabel.Text = sitRemainedTime[i].ToString();
+                        targetLabel.Visible = true;
                     }
                 }
 
-                 //if (sitPowerOn 
+                if (sitPowerOn[i] == "꺼짐")
+                {
+                    controlName = "SitNo" + (i + 1);
+                    Control[] foundControls = this.Controls.Find(controlName, true);
+                    if (foundControls.Length > 0 && foundControls[0] is Button)
+                    {
+                        Button targetButton = (Button)foundControls[0];
+                        targetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(178)))), ((int)(((byte)(191))))); ;
+                        targetButton.ForeColor = Color.Black;
+                    }
+                    controlName = "SitRemaindedTime" + (i + 1);
+                    foundControls = this.Controls.Find(controlName, true);
+                    if (foundControls.Length > 0 && foundControls[0] is Label)
+                    {
+                        Label targetLabel = (Label)foundControls[0];
+                        targetLabel.Text = "00:00";
+                        targetLabel.Visible = false;
+                    }
+
+                }
+
             }
         }
 
@@ -127,6 +197,8 @@ namespace login
                     SelectedSitNoIndex = index-1;
                     // 팦업 폼의 배열에 쓸 인덱스.
                 }
+
+              
             }
 
             PCSitStatusForm pcSitStatusForm = new PCSitStatusForm(this);
@@ -138,6 +210,17 @@ namespace login
         private void SitManagementForm_Load(object sender, EventArgs e)
         {
             InitializeSits();
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            SitColorized();
+        }
+
+        private void SitManagementForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
