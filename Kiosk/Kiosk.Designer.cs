@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.idnow = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.roundButton8 = new login.RoundButton();
@@ -109,15 +109,15 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "사용중인 좌석 : n석";
             // 
-            // label7
+            // idnow
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 12F);
-            this.label7.Location = new System.Drawing.Point(49, 174);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 16);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "현재 아이디 :";
+            this.idnow.AutoSize = true;
+            this.idnow.Font = new System.Drawing.Font("굴림", 12F);
+            this.idnow.Location = new System.Drawing.Point(49, 174);
+            this.idnow.Name = "idnow";
+            this.idnow.Size = new System.Drawing.Size(102, 16);
+            this.idnow.TabIndex = 26;
+            this.idnow.Text = "현재 아이디 :";
             // 
             // button2
             // 
@@ -290,7 +290,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.idnow);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Name = "Kiosk";
@@ -310,7 +310,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label idnow;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private login.RoundButton roundButton8;

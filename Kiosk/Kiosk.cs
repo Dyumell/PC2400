@@ -34,5 +34,9 @@ namespace Kiosk
             SearchID searchID = new SearchID(); 
             searchID.ShowDialog();
         }
+        public void idlabalChange(string newid)
+        {
+            idnow.Text = newid;
+        }
     }
 }

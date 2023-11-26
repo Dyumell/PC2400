@@ -73,6 +73,7 @@
             this.Controls.Add(this.txtSearchUserID);
             this.Name = "SearchID";
             this.Text = "SearchID";
+            this.Load += new System.EventHandler(this.SearchID_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
