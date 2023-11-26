@@ -25,6 +25,9 @@ namespace login
             txtSelectedSitNo.Text = selectedSitNo;
             txtSitPower.Text = selectedSitPower;
             txtSitMalfunction.Text = selectedSitMalfunction;
+            
+            txtLoginedUser.Text = DataContainer.Instance.LoginedRow[0]["user_id"].ToString();
+            txtRemainedTime.Text = DataContainer.Instance.ConvertedRemainedTime;
         }
 
 

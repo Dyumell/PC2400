@@ -13,6 +13,8 @@ namespace login
 {
     public partial class SitManagementForm : Form
     {
+        string[] sitPowerOn = new string[70];
+
         string[] sitIDArray = new string[70]; // 피시좌석 아이디 저장할 배열
         string[] sitPowerArray = new string[70]; // 피시 파워상태 저장 배열
         string[] sitMalfunctionArray = new string[70]; // 피시 고장상태 저장 배열
@@ -58,9 +60,11 @@ namespace login
             for (int i = 0; i < 70; i++)
             {
 
-                if (sitPowerArray[i] == "꺼짐")
+                if (sitPowerArray[i] == "켜짐")
                 {
                     string controlName = "SitNo" + i;
+                    sitPowerOn[i] = controlName;
+                    
 
                     Control[] foundControls = this.Controls.Find(controlName, true);
                     if (foundControls.Length > 0 && foundControls[0] is Button)
@@ -69,6 +73,8 @@ namespace login
                         targetButton.BackColor = Color.Purple; 
                     }
                 }
+
+                 //if (sitPowerOn 
             }
         }
 
@@ -104,7 +110,8 @@ namespace login
                 }
             }
         }
-        
+
+      
 
         private void Sit_Click(object sender, EventArgs e)
         {
@@ -126,11 +133,6 @@ namespace login
             pcSitStatusForm.ShowDialog();
             
          
-        }
-
-        private void roundedPanel2_Paint(object sender, PaintEventArgs e)
-        {
-            
         }
 
         private void SitManagementForm_Load(object sender, EventArgs e)

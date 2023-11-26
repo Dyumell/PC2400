@@ -72,5 +72,10 @@ namespace login
             SitManagementForm sitManagementForm = new SitManagementForm();
             sitManagementForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(DataContainer.Instance.LoginedRow[0]["user_id"].ToString() + " " + DataContainer.Instance.ConvertedRemainedTime);
+        }
     }
 }

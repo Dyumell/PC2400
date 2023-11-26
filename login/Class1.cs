@@ -21,9 +21,12 @@ namespace login
         string connectionString;// DB에 연결할 문자열
         string commandString; // 명령문 
 
+        OracleCommand myCommand; // parameter 사용을 위한 객체
+
         OracleConnection connection; // 트랜잭션때문에 추가한 객체1
         OracleTransaction transaction; // 수정/삽입/삭제 커밋을 위한 트랜잭션
 
+        public OracleCommand MyCommand { get { return myCommand; } set { myCommand = value; } }
         public OracleConnection Connection { get { return connection; } set { connection = value; } }
 
         public  OracleTransaction Transaction {  get {  return transaction; } set { transaction = value; } }    
@@ -41,6 +44,8 @@ namespace login
         public string ConnectionString { get { return connectionString; } }
 
         public string AcessedSitID {  get { return accessedSitID; } set {  accessedSitID = value; } }
+
+     
         public DBManager(string commandString)
         {
             try
@@ -49,6 +54,7 @@ namespace login
                 this.commandString = commandString;
 
                 DBAdapter = new OracleDataAdapter(CommandString, connectionString);
+
                 MyCommandBuilder = new OracleCommandBuilder(DBAdapter);
 
 
@@ -58,6 +64,11 @@ namespace login
             {
                 MessageBox.Show(DE.Message);
             }
+        }
+
+        public void ReadyParameter()
+        {
+            Connection = new OracleConnection(ConnectionString);
         }
 
         public void TransactionOpen()

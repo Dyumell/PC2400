@@ -31,6 +31,9 @@
             this.txtSitPower = new System.Windows.Forms.Label();
             this.txtSitMalfunction = new System.Windows.Forms.Label();
             this.txtSelectedSitNo = new System.Windows.Forms.Label();
+            this.txtLoginedUser = new System.Windows.Forms.Label();
+            this.txtRemainedTime = new System.Windows.Forms.Label();
+            this.ForcedPowerOffBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtSitPower
@@ -60,11 +63,41 @@
             this.txtSelectedSitNo.TabIndex = 2;
             this.txtSelectedSitNo.Text = "label1";
             // 
+            // txtLoginedUser
+            // 
+            this.txtLoginedUser.AutoSize = true;
+            this.txtLoginedUser.Location = new System.Drawing.Point(50, 155);
+            this.txtLoginedUser.Name = "txtLoginedUser";
+            this.txtLoginedUser.Size = new System.Drawing.Size(45, 15);
+            this.txtLoginedUser.TabIndex = 3;
+            this.txtLoginedUser.Text = "label2";
+            // 
+            // txtRemainedTime
+            // 
+            this.txtRemainedTime.AutoSize = true;
+            this.txtRemainedTime.Location = new System.Drawing.Point(50, 192);
+            this.txtRemainedTime.Name = "txtRemainedTime";
+            this.txtRemainedTime.Size = new System.Drawing.Size(45, 15);
+            this.txtRemainedTime.TabIndex = 4;
+            this.txtRemainedTime.Text = "label2";
+            // 
+            // ForcedPowerOffBtn
+            // 
+            this.ForcedPowerOffBtn.Location = new System.Drawing.Point(410, 117);
+            this.ForcedPowerOffBtn.Name = "ForcedPowerOffBtn";
+            this.ForcedPowerOffBtn.Size = new System.Drawing.Size(75, 23);
+            this.ForcedPowerOffBtn.TabIndex = 5;
+            this.ForcedPowerOffBtn.Text = "button1";
+            this.ForcedPowerOffBtn.UseVisualStyleBackColor = true;
+            // 
             // PCSitStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 157);
+            this.ClientSize = new System.Drawing.Size(521, 249);
+            this.Controls.Add(this.ForcedPowerOffBtn);
+            this.Controls.Add(this.txtRemainedTime);
+            this.Controls.Add(this.txtLoginedUser);
             this.Controls.Add(this.txtSelectedSitNo);
             this.Controls.Add(this.txtSitMalfunction);
             this.Controls.Add(this.txtSitPower);
@@ -80,5 +113,8 @@
         private System.Windows.Forms.Label txtSitPower;
         private System.Windows.Forms.Label txtSitMalfunction;
         private System.Windows.Forms.Label txtSelectedSitNo;
+        private System.Windows.Forms.Label txtLoginedUser;
+        private System.Windows.Forms.Label txtRemainedTime;
+        private System.Windows.Forms.Button ForcedPowerOffBtn;
     }
 }
