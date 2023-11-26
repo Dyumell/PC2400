@@ -116,7 +116,7 @@ namespace login
                     MessageBox.Show(userTypeCodeString);
                     hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
 
-                    string targetIpAddress = "192.168.58.1";
+                    string targetIpAddress = "192.168.58.1"; // PC001의 컴퓨터의 아이피
                     IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
 
 
@@ -129,6 +129,30 @@ namespace login
                         }
                     }
 
+                    // 로그인된 피씨의 상태를 켜짐으로 전환
+                    
+                    DBManager sitSearch = new DBManager("select pc_sit_id,pc_power from pc_sit_info");
+                    sitSearch.DBAdapter.Fill(sitSearch.DS, "pc_sit_info");
+                    sitSearch.DTable = sitSearch.DS.Tables["pc_sit_info"];
+                    sitSearch.ResultRows = sitSearch.DTable.Select("pc_sit_id = '" + accessedSitID + "'");
+
+                    sitSearch.ResultRows[0]["pc_power"] = "켜짐";
+      
+                    sitSearch.TransactionOpen();
+
+                    try
+                    {
+                        sitSearch.DBAdapter.SelectCommand.Transaction = sitSearch.Transaction;
+                        sitSearch.DBAdapter.Update(sitSearch.DS, "pc_sit_info");
+                        sitSearch.Transaction.Commit();
+                    }
+                    catch (DataException DE)
+                    {
+                        sitSearch.Transaction.Rollback();
+                        throw DE;
+                    }
+
+                    // 로그인된 피씨의 상태를 켜짐으로 전환
 
                     ClientDeskTopManagementProgram clientDeskTopManagementProgram = new ClientDeskTopManagementProgram(resultRows,accessedSitID);
                     clientDeskTopManagementProgram.Show();
@@ -192,6 +216,31 @@ namespace login
     private void LockedDeskTop_FormClosed(object sender, FormClosedEventArgs e)
         {
             hookManager.UnHook(); //반드시 후킹을 풀어줘야한다
+
+            // 로그아웃된 피씨의 상태를 꺼짐으로 전환
+
+            DBManager sitSearch = new DBManager("select pc_sit_id,pc_power from pc_sit_info");
+            sitSearch.DBAdapter.Fill(sitSearch.DS, "pc_sit_info");
+            sitSearch.DTable = sitSearch.DS.Tables["pc_sit_info"];
+            sitSearch.ResultRows = sitSearch.DTable.Select("pc_sit_id = '" + accessedSitID + "'");
+
+            sitSearch.ResultRows[0]["pc_power"] = "꺼짐";
+
+            sitSearch.TransactionOpen();
+
+            try
+            {
+                sitSearch.DBAdapter.SelectCommand.Transaction = sitSearch.Transaction;
+                sitSearch.DBAdapter.Update(sitSearch.DS, "pc_sit_info");
+                sitSearch.Transaction.Commit();
+            }
+            catch (DataException DE)
+            {
+                sitSearch.Transaction.Rollback();
+                throw DE;
+            }
+
+            // 로그아웃된 피씨의 상태를 꺼짐으로 전환
         }
 
         private void LockedDeskTop_Load(object sender, EventArgs e)
@@ -260,6 +309,12 @@ namespace login
             clientDeskTopManagementProgram.FormClosed += (s, args) => this.Close();
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Server serverForm = new Server();
+            serverForm.Show();
         }
     }
 }

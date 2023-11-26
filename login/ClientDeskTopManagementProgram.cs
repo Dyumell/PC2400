@@ -16,14 +16,67 @@ namespace login
 
     public partial class ClientDeskTopManagementProgram : Form // 고려사항 : 잔여시간 30 , 10 , 5 , 1 분때에 메세지 박스 출력
     {
+        public void InsertPCUsage()
+        {
+            string command = "INSERT INTO pc_sit_usage (pc_sit_id, remained_time, user_id) VALUES (:pc_sit_id, :remained_time, :user_id)";
+            DBManager DBMPCUsage = new DBManager(command); // 연결형을 사용함
+            DBMPCUsage.ReadyParameter();
+            DBMPCUsage.Connection.Open();
+
+            DBMPCUsage.MyCommand = new OracleCommand(command ,DBMPCUsage.Connection);
+
+
+            DBMPCUsage.MyCommand.Parameters.Add("pc_sit_id", OracleDbType.Varchar2, 30).Value = accessedSitID;
+            DBMPCUsage.MyCommand.Parameters.Add("remained_time", OracleDbType.Varchar2, 30).Value = ConvertIntToTime(remainedTime);
+            DBMPCUsage.MyCommand.Parameters.Add("user_id", OracleDbType.Varchar2, 30).Value = LoginedRow[0]["user_id"].ToString();
+
+            DBMPCUsage.MyCommand.ExecuteNonQuery();
+
+            DBMPCUsage.Connection.Close(); // 반드시 닫아야한다.
+        }
+        public void UpdatePCUsage()
+        {
+            string command = "UPDATE pc_sit_usage SET remained_time = :remained_time WHERE pc_sit_id = :pc_sit_id AND user_id = :user_id";
+            DBManager DBMPCUsage = new DBManager(command); // 연결형을 사용함
+            DBMPCUsage.ReadyParameter();
+            DBMPCUsage.Connection.Open();
+
+            DBMPCUsage.MyCommand = new OracleCommand(command, DBMPCUsage.Connection);
+
+            DBMPCUsage.MyCommand.Parameters.Add("remained_time", OracleDbType.Varchar2, 30).Value = ConvertIntToTime(remainedTime);
+            DBMPCUsage.MyCommand.Parameters.Add("pc_sit_id", OracleDbType.Varchar2, 30).Value = accessedSitID;
+            DBMPCUsage.MyCommand.Parameters.Add("user_id", OracleDbType.Varchar2, 30).Value = LoginedRow[0]["user_id"].ToString();
+
+            DBMPCUsage.MyCommand.ExecuteNonQuery();
+
+            DBMPCUsage.Connection.Close(); // 반드시 닫아야한다.
+        }
+        public void DeletePCUsage()
+        {
+            string command = "DELETE FROM pc_sit_usage WHERE pc_sit_id = :pc_sit_id AND user_id = :user_id";
+            DBManager DBMPCUsage = new DBManager(command); // 연결형을 사용함
+            DBMPCUsage.ReadyParameter();
+            DBMPCUsage.Connection.Open();
+
+            DBMPCUsage.MyCommand = new OracleCommand(command, DBMPCUsage.Connection);
+
+
+            DBMPCUsage.MyCommand.Parameters.Add("pc_sit_id", OracleDbType.Varchar2, 30).Value = accessedSitID;
+            DBMPCUsage.MyCommand.Parameters.Add("user_id", OracleDbType.Varchar2, 30).Value = LoginedRow[0]["user_id"].ToString();
+
+            DBMPCUsage.MyCommand.ExecuteNonQuery();
+
+            DBMPCUsage.Connection.Close(); // 반드시 닫아야한다.
+        }
+
         public void TestShowRemainedTime()
         {
             string command = "SELECT user_id,remained_time FROM user_account_login";
             DBManager DBMClient = new DBManager(command);
             DBMClient.DS.Clear();
             DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
-            DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
-            DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+            DBMClient.DTable = DBMClient.DS.Tables["user_account_login"];
+            DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
 
             MessageBox.Show(DBMClient.ResultRows[0]["remained_time"].ToString());
             
@@ -34,17 +87,19 @@ namespace login
             DBManager DBMClient = new DBManager(command);
             DBMClient.DS.Clear();
             DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
-            DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
-            DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+            DBMClient.DTable = DBMClient.DS.Tables["user_account_login"];
+            DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
             remainedTime = Convert.ToInt32(DBMClient.ResultRows[0]["remained_time"]);
             return ConvertIntToTime(remainedTime);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // Call the method to update remained_time
+            // 잔여시간을 1분간격으로 업데이트
             UpdateRemainedTime();
+            UpdatePCUsage();
             labelCDTMPRemainedTime.Text = ConvertIntToTime(remainedTime);
+            
         }
 
         public void UpdateRemainedTime()
@@ -56,16 +111,17 @@ namespace login
                 DBMClient.DS.Clear();
                 DBMClient.DBAdapter.Fill(DBMClient.DS, "user_account_login");
 
-                DBMClient.UserTable = DBMClient.DS.Tables["user_account_login"];
-                DBMClient.ResultRows = DBMClient.UserTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
+                DBMClient.DTable = DBMClient.DS.Tables["user_account_login"];
+                DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
 
                 remainedTime = Convert.ToInt32(DBMClient.ResultRows[0]["remained_time"]);
                 remainedTime--;
 
                 DBMClient.ResultRows[0]["remained_time"] = remainedTime;
-                DBMClient.DBAdapter.Update(DBMClient.DS, "user_account_login");
+                
 
                 DBMClient.TransactionOpen();
+
 
                 try
                 {
@@ -114,6 +170,7 @@ namespace login
             InitializeComponent();
             DisableCloseButton(this.Handle);
             this.loginedRow = resultRows;
+            DataContainer.Instance.LoginedRow = this.loginedRow;
             this.accessedSitID = accessedSitID;
         }
          // 위 생성자중 몇개는 추후에 삭제해야함
@@ -141,6 +198,8 @@ namespace login
         OracleDataAdapter DBAdapter; // 그거
         DataTable userTable; //추가될 Row(열)을 담아놓는 변수
 
+        public DataRow[] LoginedRow { get { return loginedRow; } set { loginedRow = value; } }
+
         string connectionString = "User Id=dyumell; Password = 1755; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))); ";
         string commandString = "SELECT * FROM user_account_login ";
         private void DisableCloseButton(IntPtr handle)
@@ -167,7 +226,10 @@ namespace login
            
             timer1.Start();
             CheckRemainedTime();
+            InsertPCUsage();
             labelCDTMPRemainedTime.Text = ConvertIntToTime(remainedTime);
+            
+            DataContainer.Instance.ConvertedRemainedTime = ConvertIntToTime(remainedTime);
             labelCDTMPSitNo.Text = accessedSitID;
             labelCDTMPUserID.Text = "사용자 계정 : " + loginedRow[0]["user_id"].ToString();
             MessageBox.Show(accessedSitID);
@@ -181,11 +243,13 @@ namespace login
         private void button2_Click(object sender, EventArgs e) // 잔여시간 차감 테스트버튼
         {
             UpdateRemainedTime();
+            UpdatePCUsage();
         }
 
         private void ClientDeskTopManagementProgram_FormClosed(object sender, FormClosedEventArgs e) // 폼 닫힐 시 타이머를 종료
         {
             timer1.Stop();
+            DeletePCUsage();
         }
 
         private string ConvertIntToTime(int remainedTime) // 0~ 9분을 :00 ~ :09 로 보이기위한 변환함수
@@ -196,5 +260,10 @@ namespace login
             return $"{hour}:{minute:D2}";
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UpdatePCUsage();
+            MessageBox.Show(DataContainer.Instance.LoginedRow[0]["user_id"].ToString() + " " + DataContainer.Instance.ConvertedRemainedTime);
+        }
     }
 }

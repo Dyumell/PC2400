@@ -102,12 +102,20 @@
     <Compile Include="ClientDeskTopManagementProgram.Designer.cs">
       <DependentUpon>ClientDeskTopManagementProgram.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContainer.cs" />
+    <Compile Include="DBManger.cs" />
     <Compile Include="HookManager.cs" />
     <Compile Include="LockedDeskTop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LockedDeskTop.Designer.cs">
       <DependentUpon>LockedDeskTop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCSitStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PCSitStatusForm.Designer.cs">
+      <DependentUpon>PCSitStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +130,12 @@
     </Compile>
     <Compile Include="SearchAccount.Designer.cs">
       <DependentUpon>SearchAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Server.Designer.cs">
+      <DependentUpon>Server.cs</DependentUpon>
     </Compile>
     <Compile Include="SitManagementForm.cs">
       <SubType>Form</SubType>
@@ -144,6 +158,9 @@
     <EmbeddedResource Include="LockedDeskTop.resx">
       <DependentUpon>LockedDeskTop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PCSitStatusForm.resx">
+      <DependentUpon>PCSitStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -155,6 +172,9 @@
     </Compile>
     <EmbeddedResource Include="SearchAccount.resx">
       <DependentUpon>SearchAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Server.resx">
+      <DependentUpon>Server.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SitManagementForm.resx">
       <DependentUpon>SitManagementForm.cs</DependentUpon>
