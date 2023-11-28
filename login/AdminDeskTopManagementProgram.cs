@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using test1;
 
 namespace login
 {
@@ -76,6 +77,12 @@ namespace login
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(DataContainer.Instance.LoginedRow[0]["user_id"].ToString() + " " + DataContainer.Instance.ConvertedRemainedTime);
+        }
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MeneuOrderListQueueForm menuOrderListQueueForm = new MeneuOrderListQueueForm();
+            menuOrderListQueueForm.Show();
         }
     }
 }
