@@ -29,11 +29,10 @@ namespace login
         }
 
         private void DB_Open() // DB연결
-
         {
             try
             {
-                string connectionString = "User Id=dyumell; Password = 1755; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))); ";
+                string connectionString = "User Id=chris; Password = 1111; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))); ";
                 string commandString =
                     "SELECT user_account_login.user_id, user_name, user_phone_num, user_email, user_pwd FROM user_account_login " +
                     "INNER JOIN user_account_query " +
@@ -49,7 +48,51 @@ namespace login
             }
         }
 
+        private void SearchButtonClick(string columnName, TextBox textBox)
+        {
+            listViewSearchResult.Items.Clear(); // 리스트뷰 초기화
+            DS.Clear(); // DS 초기화
+            DBAdapter.Fill(DS, "JoinedData"); // DS에 쿼리한결과담음
+            resultUserIDTable = DS.Tables["JoinedData"]; // 복사본을 DataTable 변수에 할당
+            // resultRows : 할당된 테이블에서 쿼리를 적용하기 위한 DataRow변수 / DataRow[] 를 초기화할때는 Array.Clear(resultRow, 0, resultRow.length) 사용
+            resultRows = resultUserIDTable.Select($"{columnName} like '%{textBox.Text}%'"); // ${} : 문자열 보간
+                                                                                            // 문자열 보간 안에는 변수뿐만 아니라 모든 유효한 표현식을 넣을 수 있음
 
+            foreach (DataRow dr in resultRows) // foreach문을 이용해서, 쿼리의 결과를 리스트뷰에 출력
+            {
+                ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
+
+                for (int i = 1; i < resultUserIDTable.Columns.Count; i++) // 만약 위처럼 첫번째열을 첫번째 서브아이템으로 추가하는 방식을
+                                                                          // 사용하지 않을 시 리스트뷰가 전부 한칸씩 밀리게된다.
+                {
+                    item.SubItems.Add(dr[i].ToString());
+                }
+
+                listViewSearchResult.Items.Add(item);
+            }
+        }
+
+        private void SearchUserID_Click(object sender, EventArgs e) // 아이디로 검색하기 버튼
+        {
+            SearchButtonClick("user_id", txtSearchUserID);
+        }
+
+        private void SearchUserNameBtn_Click(object sender, EventArgs e) // 이름으로 검색하기 버튼
+        {
+            SearchButtonClick("user_name", txtSearchUserName);
+        }
+
+        private void SearchUserPhoneBtn_Click(object sender, EventArgs e) // 전화번호로 검색하기 버튼
+        {
+            SearchButtonClick("user_phone_num", txtSearchUserPhoneNum);
+        }
+
+        private void SearchUserMailBtn_Click(object sender, EventArgs e) // 메일로 검색하기 버튼
+        {
+            SearchButtonClick("user_email", txtSearchUserMail);
+        }
+
+        /**
         private void SearchUserID_Click(object sender, EventArgs e) // 아이디로 검색하기 버튼
         {
             listViewSearchResult.Items.Clear(); // 리스트뷰 초기화
@@ -75,18 +118,6 @@ namespace login
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listViewSearchResult.SelectedIndices.Count > 0)
-            {
-                int selectedIndex = listViewSearchResult.SelectedIndices[0]; // 첫 번째 선택된 아이템의 인덱스
-                ListViewItem selectedItem = listViewSearchResult.Items[selectedIndex]; // 선택된 아이템
-                string column1Value = selectedItem.SubItems[0].Text;
-
-                MessageBox.Show($"Selected: Column1 - {column1Value}");
-
-            }
-        }
 
         private void SearchUserNameBtn_Click(object sender, EventArgs e)
         {
@@ -106,7 +137,7 @@ namespace login
                 {                                                         // 사용하지 않을 시 리스트뷰가 전부 한칸씩 밀리게된다.
                     item.SubItems.Add(dr[i].ToString());
                 }
-
+        
                 listViewSearchResult.Items.Add(item);
             }
         }
@@ -143,25 +174,39 @@ namespace login
             resultUserIDTable = DS.Tables["JoinedData"];
             resultRows
                         = resultUserIDTable.Select("user_email like '%" + txtSearchUserMail.Text + "%'");
-                foreach (DataRow dr in resultRows)
+            foreach (DataRow dr in resultRows)
+            {
+                ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
+
+                // 나머지 열에 대해 서브아이템 추가
+                for (int i = 1; i < resultUserIDTable.Columns.Count; i++)
                 {
-                    ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
-
-                    // 나머지 열에 대해 서브아이템 추가
-                    for (int i = 1; i < resultUserIDTable.Columns.Count; i++)
-                    {
-                        item.SubItems.Add(dr[i].ToString());
-                    }
-
-                    listViewSearchResult.Items.Add(item);
-
+                    item.SubItems.Add(dr[i].ToString());
                 }
+
+                listViewSearchResult.Items.Add(item);
+
             }
+        }
+        **/
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewSearchResult.SelectedIndices.Count > 0)
+            {
+                int selectedIndex = listViewSearchResult.SelectedIndices[0]; // 첫 번째 선택된 아이템의 인덱스
+                ListViewItem selectedItem = listViewSearchResult.Items[selectedIndex]; // 선택된 아이템
+                string column1Value = selectedItem.SubItems[0].Text;
+
+                MessageBox.Show($"Selected: Column1 - {column1Value}");
+
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e) //  사용내역조회버튼 -선행작업필요: 좌석관리디스플레이, 피시정보등
         {
 
         }
     }
-    }
+}
 

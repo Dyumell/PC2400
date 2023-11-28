@@ -22,6 +22,8 @@ namespace login
 {
     public partial class LockedDeskTop: Form
     {
+        private bool isLoggedIn = false; // 개선사항 (isLoggedIn이라는 부울 플래그를 추가하여 사용자가 이미 로그인되었는지 여부를 추적)
+
         string accessedSitID;
         string myIP = " 192.168.195.1";
         DataSet DS; // 복사된 데이터를 저장하는 변수
@@ -49,7 +51,7 @@ namespace login
         {
             try
             {
-                string connectionString = "User Id=dyumell; Password = 1755; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))); ";
+                string connectionString = "User Id=chris; Password = 1111; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))); ";
                 string commandString = 
                     "SELECT * FROM user_account_login " +
                     "INNER JOIN user_account_query " +
@@ -86,6 +88,12 @@ namespace login
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            if (isLoggedIn) // 개선사항 (이미 로그인시 접속 거부)
+            {
+                MessageBox.Show("이미 로그인되었습니다. 액세스 거부됨.");
+                return;
+            }
+
             DS.Clear();
             DBAdapter.Fill(DS, "user_account_login");
             userTable = DS.Tables["user_account_login"];
@@ -136,8 +144,13 @@ namespace login
                     sitSearch.DTable = sitSearch.DS.Tables["pc_sit_info"];
                     sitSearch.ResultRows = sitSearch.DTable.Select("pc_sit_id = '" + accessedSitID + "'");
 
-                    sitSearch.ResultRows[0]["pc_power"] = "켜짐";
-      
+                    // sitSearch.ResultRows[0]["pc_power"] = "켜짐";
+
+                    if (sitSearch.ResultRows.Length > 0)
+                    {
+                        sitSearch.ResultRows[0]["pc_power"] = "켜짐";
+                    }
+
                     sitSearch.TransactionOpen();
 
                     try
@@ -166,6 +179,7 @@ namespace login
                     MessageBox.Show("잔여시간이 부족합니다");
                 }
 
+                isLoggedIn = true; // 개선사항 (로그인이 성공하면 isLoggedIn 플래그를 true로 업데이트)
             }
             else
             {
@@ -210,8 +224,6 @@ namespace login
             }
                 MessageBox.Show(accessedSitID);
         }
-
-
 
     private void LockedDeskTop_FormClosed(object sender, FormClosedEventArgs e)
         {
