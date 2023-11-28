@@ -111,12 +111,6 @@
     <Compile Include="LockedDeskTop.Designer.cs">
       <DependentUpon>LockedDeskTop.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuOrderQueueForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuOrderQueueForm.Designer.cs">
-      <DependentUpon>MenuOrderQueueForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PCSitStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,9 +157,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LockedDeskTop.resx">
       <DependentUpon>LockedDeskTop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuOrderQueueForm.resx">
-      <DependentUpon>MenuOrderQueueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PCSitStatusForm.resx">
       <DependentUpon>PCSitStatusForm.cs</DependentUpon>
