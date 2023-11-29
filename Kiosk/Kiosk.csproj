@@ -71,6 +71,7 @@
     <Compile Include="SearchID.Designer.cs">
       <DependentUpon>SearchID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Updatequery.cs" />
     <EmbeddedResource Include="Kiosk.resx">
       <DependentUpon>Kiosk.cs</DependentUpon>
     </EmbeddedResource>

@@ -15,12 +15,15 @@ namespace Kiosk
     
     public partial class SearchID : Form
     {
-        public DBManager DBManager;
-        private Kiosk kiosk;
         
-        public SearchID()
+        public DBManager DBManager;
+        Kiosk kiosk;
+
+        public SearchID(Kiosk _kiosk)
         {
             InitializeComponent();
+            kiosk = _kiosk;
+
         }
 
         private void SearchUserID_Click(object sender, EventArgs e)
@@ -35,13 +38,19 @@ namespace Kiosk
                 if (DBManager.DS.Tables[0].Rows.Count > 0)
                 {
                     MessageBox.Show(id + "님 확인되었습니다");
-                }else
+                    kiosk.idlabalChange(id);
+                    
+                    kiosk.closeSearch();
+
+
+                }
+                else
                 {
                     MessageBox.Show("id를 다시한번 확인해주세요");
                 }
                 
                 
-               /* kiosk.idlabalChange(id);*/
+               
 
             }
             catch(Exception ex)
