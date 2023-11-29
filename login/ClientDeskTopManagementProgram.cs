@@ -20,7 +20,7 @@ namespace login
         {
             string command = "INSERT INTO pc_sit_usage (pc_sit_id, remained_time, user_id) VALUES (:pc_sit_id, :remained_time, :user_id)";
             DBManager DBMPCUsage = new DBManager(command); // 연결형을 사용함
-            DBMPCUsage.ReadyParameter();
+            DBMPCUsage.LetsUseParameter();
             DBMPCUsage.Connection.Open();
 
             DBMPCUsage.MyCommand = new OracleCommand(command ,DBMPCUsage.Connection);
@@ -38,7 +38,7 @@ namespace login
         {
             string command = "UPDATE pc_sit_usage SET remained_time = :remained_time WHERE pc_sit_id = :pc_sit_id AND user_id = :user_id";
             DBManager DBMPCUsage = new DBManager(command); // 연결형을 사용함
-            DBMPCUsage.ReadyParameter();
+            DBMPCUsage.LetsUseParameter();
             DBMPCUsage.Connection.Open();
 
             DBMPCUsage.MyCommand = new OracleCommand(command, DBMPCUsage.Connection);
@@ -55,7 +55,7 @@ namespace login
         {
             string command = "DELETE FROM pc_sit_usage WHERE pc_sit_id = :pc_sit_id AND user_id = :user_id";
             DBManager DBMPCUsage = new DBManager(command); // 연결형을 사용함
-            DBMPCUsage.ReadyParameter();
+            DBMPCUsage.LetsUseParameter();
             DBMPCUsage.Connection.Open();
 
             DBMPCUsage.MyCommand = new OracleCommand(command, DBMPCUsage.Connection);

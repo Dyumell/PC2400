@@ -53,6 +53,7 @@
             this.txtLoginID.Name = "txtLoginID";
             this.txtLoginID.Size = new System.Drawing.Size(266, 53);
             this.txtLoginID.TabIndex = 0;
+            this.txtLoginID.Text = "test01";
             // 
             // txtLoginPwd
             // 
@@ -62,6 +63,7 @@
             this.txtLoginPwd.PasswordChar = '*';
             this.txtLoginPwd.Size = new System.Drawing.Size(266, 53);
             this.txtLoginPwd.TabIndex = 2;
+            this.txtLoginPwd.Text = "test@01";
             // 
             // LoginBtn
             // 

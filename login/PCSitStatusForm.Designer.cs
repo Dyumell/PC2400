@@ -89,6 +89,7 @@
             this.ForcedPowerOffBtn.TabIndex = 5;
             this.ForcedPowerOffBtn.Text = "button1";
             this.ForcedPowerOffBtn.UseVisualStyleBackColor = true;
+            this.ForcedPowerOffBtn.Click += new System.EventHandler(this.ForcedPowerOffBtn_Click);
             // 
             // PCSitStatusForm
             // 

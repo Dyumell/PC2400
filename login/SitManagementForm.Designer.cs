@@ -1,4 +1,6 @@
-﻿namespace login
+﻿using System.Drawing;
+
+namespace login
 {
     partial class SitManagementForm
     {
@@ -28,8 +30,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.roundedPanel1 = new login.RoundedPanel();
             this.roundedPanel2 = new login.RoundedPanel();
+            this.SitRemainedTime1 = new System.Windows.Forms.Label();
             this.SitNo60 = new System.Windows.Forms.Button();
             this.SitNo58 = new System.Windows.Forms.Button();
             this.SitNo57 = new System.Windows.Forms.Button();
@@ -100,9 +105,83 @@
             this.SitNo3 = new System.Windows.Forms.Button();
             this.SitNo2 = new System.Windows.Forms.Button();
             this.SitNo1 = new System.Windows.Forms.Button();
+            this.SitRemainedTime2 = new System.Windows.Forms.Label();
+            this.SitRemainedTime3 = new System.Windows.Forms.Label();
+            this.SitRemainedTime4 = new System.Windows.Forms.Label();
+            this.SitRemainedTime5 = new System.Windows.Forms.Label();
+            this.SitRemainedTime6 = new System.Windows.Forms.Label();
+            this.SitRemainedTime7 = new System.Windows.Forms.Label();
+            this.SitRemainedTime8 = new System.Windows.Forms.Label();
+            this.SitRemainedTime9 = new System.Windows.Forms.Label();
+            this.SitRemainedTime10 = new System.Windows.Forms.Label();
+            this.SitRemainedTime11 = new System.Windows.Forms.Label();
+            this.SitRemainedTime12 = new System.Windows.Forms.Label();
+            this.SitRemainedTime13 = new System.Windows.Forms.Label();
+            this.SitRemainedTime14 = new System.Windows.Forms.Label();
+            this.SitRemainedTime15 = new System.Windows.Forms.Label();
+            this.SitRemainedTime16 = new System.Windows.Forms.Label();
+            this.SitRemainedTime17 = new System.Windows.Forms.Label();
+            this.SitRemainedTime18 = new System.Windows.Forms.Label();
+            this.SitRemainedTime19 = new System.Windows.Forms.Label();
+            this.SitRemainedTime20 = new System.Windows.Forms.Label();
+            this.SitRemainedTime21 = new System.Windows.Forms.Label();
+            this.SitRemainedTime22 = new System.Windows.Forms.Label();
+            this.SitRemainedTime23 = new System.Windows.Forms.Label();
+            this.SitRemainedTime24 = new System.Windows.Forms.Label();
+            this.SitRemainedTime25 = new System.Windows.Forms.Label();
+            this.SitRemainedTime26 = new System.Windows.Forms.Label();
+            this.SitRemainedTime27 = new System.Windows.Forms.Label();
+            this.SitRemainedTime28 = new System.Windows.Forms.Label();
+            this.SitRemainedTime29 = new System.Windows.Forms.Label();
+            this.SitRemainedTime30 = new System.Windows.Forms.Label();
+            this.SitRemainedTime31 = new System.Windows.Forms.Label();
+            this.SitRemainedTime32 = new System.Windows.Forms.Label();
+            this.SitRemainedTime33 = new System.Windows.Forms.Label();
+            this.SitRemainedTime34 = new System.Windows.Forms.Label();
+            this.SitRemainedTime35 = new System.Windows.Forms.Label();
+            this.SitRemainedTime36 = new System.Windows.Forms.Label();
+            this.SitRemainedTime37 = new System.Windows.Forms.Label();
+            this.SitRemainedTime38 = new System.Windows.Forms.Label();
+            this.SitRemainedTime39 = new System.Windows.Forms.Label();
+            this.SitRemainedTime40 = new System.Windows.Forms.Label();
+            this.SitRemainedTime41 = new System.Windows.Forms.Label();
+            this.SitRemainedTime42 = new System.Windows.Forms.Label();
+            this.SitRemainedTime43 = new System.Windows.Forms.Label();
+            this.SitRemainedTime44 = new System.Windows.Forms.Label();
+            this.SitRemainedTime45 = new System.Windows.Forms.Label();
+            this.SitRemainedTime46 = new System.Windows.Forms.Label();
+            this.SitRemainedTime47 = new System.Windows.Forms.Label();
+            this.SitRemainedTime48 = new System.Windows.Forms.Label();
+            this.SitRemainedTime49 = new System.Windows.Forms.Label();
+            this.SitRemainedTime50 = new System.Windows.Forms.Label();
+            this.SitRemainedTime51 = new System.Windows.Forms.Label();
+            this.SitRemainedTime52 = new System.Windows.Forms.Label();
+            this.SitRemainedTime53 = new System.Windows.Forms.Label();
+            this.SitRemainedTime54 = new System.Windows.Forms.Label();
+            this.SitRemainedTime55 = new System.Windows.Forms.Label();
+            this.SitRemainedTime56 = new System.Windows.Forms.Label();
+            this.SitRemainedTime57 = new System.Windows.Forms.Label();
+            this.SitRemainedTime58 = new System.Windows.Forms.Label();
+            this.SitRemainedTime59 = new System.Windows.Forms.Label();
+            this.SitRemainedTime60 = new System.Windows.Forms.Label();
+            this.SitRemainedTime61 = new System.Windows.Forms.Label();
+            this.SitRemainedTime62 = new System.Windows.Forms.Label();
+            this.SitRemainedTime63 = new System.Windows.Forms.Label();
+            this.SitRemainedTime64 = new System.Windows.Forms.Label();
+            this.SitRemainedTime65 = new System.Windows.Forms.Label();
+            this.SitRemainedTime66 = new System.Windows.Forms.Label();
+            this.SitRemainedTime67 = new System.Windows.Forms.Label();
+            this.SitRemainedTime68 = new System.Windows.Forms.Label();
+            this.SitRemainedTime69 = new System.Windows.Forms.Label();
+            this.SitRemainedTime70 = new System.Windows.Forms.Label();
             this.roundedPanel1.SuspendLayout();
             this.roundedPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // roundedPanel1
             // 
@@ -117,6 +196,76 @@
             // roundedPanel2
             // 
             this.roundedPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime69);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime70);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime67);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime68);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime65);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime66);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime63);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime64);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime61);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime62);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime51);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime52);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime53);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime54);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime55);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime56);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime57);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime58);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime59);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime60);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime41);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime42);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime43);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime44);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime45);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime46);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime47);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime48);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime49);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime50);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime31);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime32);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime33);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime34);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime35);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime36);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime37);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime38);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime39);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime40);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime21);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime22);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime23);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime24);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime25);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime26);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime27);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime28);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime29);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime30);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime11);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime12);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime13);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime14);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime15);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime16);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime17);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime18);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime19);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime20);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime10);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime9);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime5);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime6);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime7);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime8);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime3);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime4);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime2);
+            this.roundedPanel2.Controls.Add(this.SitRemainedTime1);
             this.roundedPanel2.Controls.Add(this.SitNo60);
             this.roundedPanel2.Controls.Add(this.SitNo58);
             this.roundedPanel2.Controls.Add(this.SitNo57);
@@ -192,6 +341,19 @@
             this.roundedPanel2.Radius = 60;
             this.roundedPanel2.Size = new System.Drawing.Size(1049, 538);
             this.roundedPanel2.TabIndex = 1;
+            // 
+            // SitRemainedTime1
+            // 
+            this.SitRemainedTime1.AutoSize = true;
+            this.SitRemainedTime1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime1.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime1.Location = new System.Drawing.Point(42, 62);
+            this.SitRemainedTime1.Name = "SitRemainedTime1";
+            this.SitRemainedTime1.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime1.TabIndex = 72;
+            this.SitRemainedTime1.Text = "24:00";
+            this.SitRemainedTime1.Visible = false;
             // 
             // SitNo60
             // 
@@ -1103,6 +1265,903 @@
             this.SitNo1.Text = "1";
             this.SitNo1.UseVisualStyleBackColor = false;
             // 
+            // SitRemainedTime2
+            // 
+            this.SitRemainedTime2.AutoSize = true;
+            this.SitRemainedTime2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime2.Location = new System.Drawing.Point(113, 62);
+            this.SitRemainedTime2.Name = "SitRemainedTime2";
+            this.SitRemainedTime2.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime2.TabIndex = 73;
+            this.SitRemainedTime2.Text = "24:00";
+            this.SitRemainedTime2.Visible = false;
+            // 
+            // SitRemainedTime3
+            // 
+            this.SitRemainedTime3.AutoSize = true;
+            this.SitRemainedTime3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime3.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime3.Location = new System.Drawing.Point(185, 62);
+            this.SitRemainedTime3.Name = "SitRemainedTime3";
+            this.SitRemainedTime3.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime3.TabIndex = 75;
+            this.SitRemainedTime3.Text = "24:00";
+            this.SitRemainedTime3.Visible = false;
+            // 
+            // SitRemainedTime4
+            // 
+            this.SitRemainedTime4.AutoSize = true;
+            this.SitRemainedTime4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime4.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime4.Location = new System.Drawing.Point(257, 62);
+            this.SitRemainedTime4.Name = "SitRemainedTime4";
+            this.SitRemainedTime4.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime4.TabIndex = 74;
+            this.SitRemainedTime4.Text = "24:00";
+            this.SitRemainedTime4.Visible = false;
+            // 
+            // SitRemainedTime5
+            // 
+            this.SitRemainedTime5.AutoSize = true;
+            this.SitRemainedTime5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime5.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime5.Location = new System.Drawing.Point(400, 62);
+            this.SitRemainedTime5.Name = "SitRemainedTime5";
+            this.SitRemainedTime5.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime5.TabIndex = 79;
+            this.SitRemainedTime5.Text = "24:00";
+            this.SitRemainedTime5.Visible = false;
+            // 
+            // SitRemainedTime6
+            // 
+            this.SitRemainedTime6.AutoSize = true;
+            this.SitRemainedTime6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime6.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime6.Location = new System.Drawing.Point(329, 62);
+            this.SitRemainedTime6.Name = "SitRemainedTime6";
+            this.SitRemainedTime6.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime6.TabIndex = 78;
+            this.SitRemainedTime6.Text = "24:00";
+            this.SitRemainedTime6.Visible = false;
+            // 
+            // SitRemainedTime7
+            // 
+            this.SitRemainedTime7.AutoSize = true;
+            this.SitRemainedTime7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime7.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime7.Location = new System.Drawing.Point(472, 62);
+            this.SitRemainedTime7.Name = "SitRemainedTime7";
+            this.SitRemainedTime7.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime7.TabIndex = 77;
+            this.SitRemainedTime7.Text = "24:00";
+            this.SitRemainedTime7.Visible = false;
+            // 
+            // SitRemainedTime8
+            // 
+            this.SitRemainedTime8.AutoSize = true;
+            this.SitRemainedTime8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime8.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime8.Location = new System.Drawing.Point(543, 62);
+            this.SitRemainedTime8.Name = "SitRemainedTime8";
+            this.SitRemainedTime8.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime8.TabIndex = 76;
+            this.SitRemainedTime8.Text = "24:00";
+            this.SitRemainedTime8.Visible = false;
+            // 
+            // SitRemainedTime9
+            // 
+            this.SitRemainedTime9.AutoSize = true;
+            this.SitRemainedTime9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime9.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime9.Location = new System.Drawing.Point(615, 62);
+            this.SitRemainedTime9.Name = "SitRemainedTime9";
+            this.SitRemainedTime9.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime9.TabIndex = 80;
+            this.SitRemainedTime9.Text = "24:00";
+            this.SitRemainedTime9.Visible = false;
+            // 
+            // SitRemainedTime10
+            // 
+            this.SitRemainedTime10.AutoSize = true;
+            this.SitRemainedTime10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime10.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime10.Location = new System.Drawing.Point(686, 62);
+            this.SitRemainedTime10.Name = "SitRemainedTime10";
+            this.SitRemainedTime10.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime10.TabIndex = 81;
+            this.SitRemainedTime10.Text = "24:00";
+            this.SitRemainedTime10.Visible = false;
+            // 
+            // SitRemainedTime11
+            // 
+            this.SitRemainedTime11.AutoSize = true;
+            this.SitRemainedTime11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime11.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime11.Location = new System.Drawing.Point(686, 145);
+            this.SitRemainedTime11.Name = "SitRemainedTime11";
+            this.SitRemainedTime11.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime11.TabIndex = 91;
+            this.SitRemainedTime11.Text = "24:00";
+            this.SitRemainedTime11.Visible = false;
+            // 
+            // SitRemainedTime12
+            // 
+            this.SitRemainedTime12.AutoSize = true;
+            this.SitRemainedTime12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime12.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime12.Location = new System.Drawing.Point(615, 145);
+            this.SitRemainedTime12.Name = "SitRemainedTime12";
+            this.SitRemainedTime12.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime12.TabIndex = 90;
+            this.SitRemainedTime12.Text = "24:00";
+            this.SitRemainedTime12.Visible = false;
+            // 
+            // SitRemainedTime13
+            // 
+            this.SitRemainedTime13.AutoSize = true;
+            this.SitRemainedTime13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime13.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime13.Location = new System.Drawing.Point(400, 145);
+            this.SitRemainedTime13.Name = "SitRemainedTime13";
+            this.SitRemainedTime13.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime13.TabIndex = 89;
+            this.SitRemainedTime13.Text = "24:00";
+            this.SitRemainedTime13.Visible = false;
+            // 
+            // SitRemainedTime14
+            // 
+            this.SitRemainedTime14.AutoSize = true;
+            this.SitRemainedTime14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime14.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime14.Location = new System.Drawing.Point(329, 145);
+            this.SitRemainedTime14.Name = "SitRemainedTime14";
+            this.SitRemainedTime14.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime14.TabIndex = 88;
+            this.SitRemainedTime14.Text = "24:00";
+            this.SitRemainedTime14.Visible = false;
+            // 
+            // SitRemainedTime15
+            // 
+            this.SitRemainedTime15.AutoSize = true;
+            this.SitRemainedTime15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime15.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime15.Location = new System.Drawing.Point(472, 145);
+            this.SitRemainedTime15.Name = "SitRemainedTime15";
+            this.SitRemainedTime15.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime15.TabIndex = 87;
+            this.SitRemainedTime15.Text = "24:00";
+            this.SitRemainedTime15.Visible = false;
+            // 
+            // SitRemainedTime16
+            // 
+            this.SitRemainedTime16.AutoSize = true;
+            this.SitRemainedTime16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime16.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime16.Location = new System.Drawing.Point(543, 145);
+            this.SitRemainedTime16.Name = "SitRemainedTime16";
+            this.SitRemainedTime16.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime16.TabIndex = 86;
+            this.SitRemainedTime16.Text = "24:00";
+            this.SitRemainedTime16.Visible = false;
+            // 
+            // SitRemainedTime17
+            // 
+            this.SitRemainedTime17.AutoSize = true;
+            this.SitRemainedTime17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime17.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime17.Location = new System.Drawing.Point(185, 145);
+            this.SitRemainedTime17.Name = "SitRemainedTime17";
+            this.SitRemainedTime17.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime17.TabIndex = 85;
+            this.SitRemainedTime17.Text = "24:00";
+            this.SitRemainedTime17.Visible = false;
+            // 
+            // SitRemainedTime18
+            // 
+            this.SitRemainedTime18.AutoSize = true;
+            this.SitRemainedTime18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime18.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime18.Location = new System.Drawing.Point(257, 145);
+            this.SitRemainedTime18.Name = "SitRemainedTime18";
+            this.SitRemainedTime18.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime18.TabIndex = 84;
+            this.SitRemainedTime18.Text = "24:00";
+            this.SitRemainedTime18.Visible = false;
+            // 
+            // SitRemainedTime19
+            // 
+            this.SitRemainedTime19.AutoSize = true;
+            this.SitRemainedTime19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime19.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime19.Location = new System.Drawing.Point(113, 145);
+            this.SitRemainedTime19.Name = "SitRemainedTime19";
+            this.SitRemainedTime19.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime19.TabIndex = 83;
+            this.SitRemainedTime19.Text = "24:00";
+            this.SitRemainedTime19.Visible = false;
+            // 
+            // SitRemainedTime20
+            // 
+            this.SitRemainedTime20.AutoSize = true;
+            this.SitRemainedTime20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime20.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime20.Location = new System.Drawing.Point(42, 145);
+            this.SitRemainedTime20.Name = "SitRemainedTime20";
+            this.SitRemainedTime20.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime20.TabIndex = 82;
+            this.SitRemainedTime20.Text = "24:00";
+            this.SitRemainedTime20.Visible = false;
+            // 
+            // SitRemainedTime21
+            // 
+            this.SitRemainedTime21.AutoSize = true;
+            this.SitRemainedTime21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime21.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime21.Location = new System.Drawing.Point(686, 234);
+            this.SitRemainedTime21.Name = "SitRemainedTime21";
+            this.SitRemainedTime21.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime21.TabIndex = 101;
+            this.SitRemainedTime21.Text = "24:00";
+            this.SitRemainedTime21.Visible = false;
+            // 
+            // SitRemainedTime22
+            // 
+            this.SitRemainedTime22.AutoSize = true;
+            this.SitRemainedTime22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime22.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime22.Location = new System.Drawing.Point(615, 234);
+            this.SitRemainedTime22.Name = "SitRemainedTime22";
+            this.SitRemainedTime22.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime22.TabIndex = 100;
+            this.SitRemainedTime22.Text = "24:00";
+            this.SitRemainedTime22.Visible = false;
+            // 
+            // SitRemainedTime23
+            // 
+            this.SitRemainedTime23.AutoSize = true;
+            this.SitRemainedTime23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime23.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime23.Location = new System.Drawing.Point(400, 234);
+            this.SitRemainedTime23.Name = "SitRemainedTime23";
+            this.SitRemainedTime23.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime23.TabIndex = 99;
+            this.SitRemainedTime23.Text = "24:00";
+            this.SitRemainedTime23.Visible = false;
+            // 
+            // SitRemainedTime24
+            // 
+            this.SitRemainedTime24.AutoSize = true;
+            this.SitRemainedTime24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime24.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime24.Location = new System.Drawing.Point(329, 234);
+            this.SitRemainedTime24.Name = "SitRemainedTime24";
+            this.SitRemainedTime24.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime24.TabIndex = 98;
+            this.SitRemainedTime24.Text = "24:00";
+            this.SitRemainedTime24.Visible = false;
+            // 
+            // SitRemainedTime25
+            // 
+            this.SitRemainedTime25.AutoSize = true;
+            this.SitRemainedTime25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime25.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime25.Location = new System.Drawing.Point(472, 234);
+            this.SitRemainedTime25.Name = "SitRemainedTime25";
+            this.SitRemainedTime25.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime25.TabIndex = 97;
+            this.SitRemainedTime25.Text = "24:00";
+            this.SitRemainedTime25.Visible = false;
+            // 
+            // SitRemainedTime26
+            // 
+            this.SitRemainedTime26.AutoSize = true;
+            this.SitRemainedTime26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime26.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime26.Location = new System.Drawing.Point(543, 234);
+            this.SitRemainedTime26.Name = "SitRemainedTime26";
+            this.SitRemainedTime26.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime26.TabIndex = 96;
+            this.SitRemainedTime26.Text = "24:00";
+            this.SitRemainedTime26.Visible = false;
+            // 
+            // SitRemainedTime27
+            // 
+            this.SitRemainedTime27.AutoSize = true;
+            this.SitRemainedTime27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime27.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime27.Location = new System.Drawing.Point(185, 234);
+            this.SitRemainedTime27.Name = "SitRemainedTime27";
+            this.SitRemainedTime27.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime27.TabIndex = 95;
+            this.SitRemainedTime27.Text = "24:00";
+            this.SitRemainedTime27.Visible = false;
+            // 
+            // SitRemainedTime28
+            // 
+            this.SitRemainedTime28.AutoSize = true;
+            this.SitRemainedTime28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime28.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime28.Location = new System.Drawing.Point(257, 234);
+            this.SitRemainedTime28.Name = "SitRemainedTime28";
+            this.SitRemainedTime28.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime28.TabIndex = 94;
+            this.SitRemainedTime28.Text = "24:00";
+            this.SitRemainedTime28.Visible = false;
+            // 
+            // SitRemainedTime29
+            // 
+            this.SitRemainedTime29.AutoSize = true;
+            this.SitRemainedTime29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime29.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime29.Location = new System.Drawing.Point(113, 234);
+            this.SitRemainedTime29.Name = "SitRemainedTime29";
+            this.SitRemainedTime29.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime29.TabIndex = 93;
+            this.SitRemainedTime29.Text = "24:00";
+            this.SitRemainedTime29.Visible = false;
+            // 
+            // SitRemainedTime30
+            // 
+            this.SitRemainedTime30.AutoSize = true;
+            this.SitRemainedTime30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime30.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime30.Location = new System.Drawing.Point(42, 234);
+            this.SitRemainedTime30.Name = "SitRemainedTime30";
+            this.SitRemainedTime30.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime30.TabIndex = 92;
+            this.SitRemainedTime30.Text = "24:00";
+            this.SitRemainedTime30.Visible = false;
+            // 
+            // SitRemainedTime31
+            // 
+            this.SitRemainedTime31.AutoSize = true;
+            this.SitRemainedTime31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime31.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime31.Location = new System.Drawing.Point(686, 323);
+            this.SitRemainedTime31.Name = "SitRemainedTime31";
+            this.SitRemainedTime31.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime31.TabIndex = 111;
+            this.SitRemainedTime31.Text = "24:00";
+            this.SitRemainedTime31.Visible = false;
+            // 
+            // SitRemainedTime32
+            // 
+            this.SitRemainedTime32.AutoSize = true;
+            this.SitRemainedTime32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime32.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime32.Location = new System.Drawing.Point(615, 323);
+            this.SitRemainedTime32.Name = "SitRemainedTime32";
+            this.SitRemainedTime32.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime32.TabIndex = 110;
+            this.SitRemainedTime32.Text = "24:00";
+            this.SitRemainedTime32.Visible = false;
+            // 
+            // SitRemainedTime33
+            // 
+            this.SitRemainedTime33.AutoSize = true;
+            this.SitRemainedTime33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime33.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime33.Location = new System.Drawing.Point(400, 323);
+            this.SitRemainedTime33.Name = "SitRemainedTime33";
+            this.SitRemainedTime33.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime33.TabIndex = 109;
+            this.SitRemainedTime33.Text = "24:00";
+            this.SitRemainedTime33.Visible = false;
+            // 
+            // SitRemainedTime34
+            // 
+            this.SitRemainedTime34.AutoSize = true;
+            this.SitRemainedTime34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime34.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime34.Location = new System.Drawing.Point(329, 323);
+            this.SitRemainedTime34.Name = "SitRemainedTime34";
+            this.SitRemainedTime34.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime34.TabIndex = 108;
+            this.SitRemainedTime34.Text = "24:00";
+            this.SitRemainedTime34.Visible = false;
+            // 
+            // SitRemainedTime35
+            // 
+            this.SitRemainedTime35.AutoSize = true;
+            this.SitRemainedTime35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime35.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime35.Location = new System.Drawing.Point(472, 323);
+            this.SitRemainedTime35.Name = "SitRemainedTime35";
+            this.SitRemainedTime35.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime35.TabIndex = 107;
+            this.SitRemainedTime35.Text = "24:00";
+            this.SitRemainedTime35.Visible = false;
+            // 
+            // SitRemainedTime36
+            // 
+            this.SitRemainedTime36.AutoSize = true;
+            this.SitRemainedTime36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime36.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime36.Location = new System.Drawing.Point(543, 323);
+            this.SitRemainedTime36.Name = "SitRemainedTime36";
+            this.SitRemainedTime36.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime36.TabIndex = 106;
+            this.SitRemainedTime36.Text = "24:00";
+            this.SitRemainedTime36.Visible = false;
+            // 
+            // SitRemainedTime37
+            // 
+            this.SitRemainedTime37.AutoSize = true;
+            this.SitRemainedTime37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime37.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime37.Location = new System.Drawing.Point(185, 323);
+            this.SitRemainedTime37.Name = "SitRemainedTime37";
+            this.SitRemainedTime37.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime37.TabIndex = 105;
+            this.SitRemainedTime37.Text = "24:00";
+            this.SitRemainedTime37.Visible = false;
+            // 
+            // SitRemainedTime38
+            // 
+            this.SitRemainedTime38.AutoSize = true;
+            this.SitRemainedTime38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime38.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime38.Location = new System.Drawing.Point(257, 323);
+            this.SitRemainedTime38.Name = "SitRemainedTime38";
+            this.SitRemainedTime38.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime38.TabIndex = 104;
+            this.SitRemainedTime38.Text = "24:00";
+            this.SitRemainedTime38.Visible = false;
+            // 
+            // SitRemainedTime39
+            // 
+            this.SitRemainedTime39.AutoSize = true;
+            this.SitRemainedTime39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime39.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime39.Location = new System.Drawing.Point(113, 323);
+            this.SitRemainedTime39.Name = "SitRemainedTime39";
+            this.SitRemainedTime39.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime39.TabIndex = 103;
+            this.SitRemainedTime39.Text = "24:00";
+            this.SitRemainedTime39.Visible = false;
+            // 
+            // SitRemainedTime40
+            // 
+            this.SitRemainedTime40.AutoSize = true;
+            this.SitRemainedTime40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime40.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime40.Location = new System.Drawing.Point(42, 323);
+            this.SitRemainedTime40.Name = "SitRemainedTime40";
+            this.SitRemainedTime40.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime40.TabIndex = 102;
+            this.SitRemainedTime40.Text = "24:00";
+            this.SitRemainedTime40.Visible = false;
+            // 
+            // SitRemainedTime41
+            // 
+            this.SitRemainedTime41.AutoSize = true;
+            this.SitRemainedTime41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime41.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime41.Location = new System.Drawing.Point(685, 410);
+            this.SitRemainedTime41.Name = "SitRemainedTime41";
+            this.SitRemainedTime41.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime41.TabIndex = 121;
+            this.SitRemainedTime41.Text = "24:00";
+            this.SitRemainedTime41.Visible = false;
+            // 
+            // SitRemainedTime42
+            // 
+            this.SitRemainedTime42.AutoSize = true;
+            this.SitRemainedTime42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime42.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime42.Location = new System.Drawing.Point(614, 410);
+            this.SitRemainedTime42.Name = "SitRemainedTime42";
+            this.SitRemainedTime42.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime42.TabIndex = 120;
+            this.SitRemainedTime42.Text = "24:00";
+            this.SitRemainedTime42.Visible = false;
+            // 
+            // SitRemainedTime43
+            // 
+            this.SitRemainedTime43.AutoSize = true;
+            this.SitRemainedTime43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime43.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime43.Location = new System.Drawing.Point(399, 410);
+            this.SitRemainedTime43.Name = "SitRemainedTime43";
+            this.SitRemainedTime43.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime43.TabIndex = 119;
+            this.SitRemainedTime43.Text = "24:00";
+            this.SitRemainedTime43.Visible = false;
+            // 
+            // SitRemainedTime44
+            // 
+            this.SitRemainedTime44.AutoSize = true;
+            this.SitRemainedTime44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime44.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime44.Location = new System.Drawing.Point(328, 410);
+            this.SitRemainedTime44.Name = "SitRemainedTime44";
+            this.SitRemainedTime44.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime44.TabIndex = 118;
+            this.SitRemainedTime44.Text = "24:00";
+            this.SitRemainedTime44.Visible = false;
+            // 
+            // SitRemainedTime45
+            // 
+            this.SitRemainedTime45.AutoSize = true;
+            this.SitRemainedTime45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime45.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime45.Location = new System.Drawing.Point(471, 410);
+            this.SitRemainedTime45.Name = "SitRemainedTime45";
+            this.SitRemainedTime45.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime45.TabIndex = 117;
+            this.SitRemainedTime45.Text = "24:00";
+            this.SitRemainedTime45.Visible = false;
+            // 
+            // SitRemainedTime46
+            // 
+            this.SitRemainedTime46.AutoSize = true;
+            this.SitRemainedTime46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime46.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime46.Location = new System.Drawing.Point(542, 410);
+            this.SitRemainedTime46.Name = "SitRemainedTime46";
+            this.SitRemainedTime46.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime46.TabIndex = 116;
+            this.SitRemainedTime46.Text = "24:00";
+            this.SitRemainedTime46.Visible = false;
+            // 
+            // SitRemainedTime47
+            // 
+            this.SitRemainedTime47.AutoSize = true;
+            this.SitRemainedTime47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime47.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime47.Location = new System.Drawing.Point(184, 410);
+            this.SitRemainedTime47.Name = "SitRemainedTime47";
+            this.SitRemainedTime47.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime47.TabIndex = 115;
+            this.SitRemainedTime47.Text = "24:00";
+            this.SitRemainedTime47.Visible = false;
+            // 
+            // SitRemainedTime48
+            // 
+            this.SitRemainedTime48.AutoSize = true;
+            this.SitRemainedTime48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime48.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime48.Location = new System.Drawing.Point(256, 410);
+            this.SitRemainedTime48.Name = "SitRemainedTime48";
+            this.SitRemainedTime48.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime48.TabIndex = 114;
+            this.SitRemainedTime48.Text = "24:00";
+            this.SitRemainedTime48.Visible = false;
+            // 
+            // SitRemainedTime49
+            // 
+            this.SitRemainedTime49.AutoSize = true;
+            this.SitRemainedTime49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime49.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime49.Location = new System.Drawing.Point(112, 410);
+            this.SitRemainedTime49.Name = "SitRemainedTime49";
+            this.SitRemainedTime49.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime49.TabIndex = 113;
+            this.SitRemainedTime49.Text = "24:00";
+            this.SitRemainedTime49.Visible = false;
+            // 
+            // SitRemainedTime50
+            // 
+            this.SitRemainedTime50.AutoSize = true;
+            this.SitRemainedTime50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime50.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime50.Location = new System.Drawing.Point(41, 410);
+            this.SitRemainedTime50.Name = "SitRemainedTime50";
+            this.SitRemainedTime50.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime50.TabIndex = 112;
+            this.SitRemainedTime50.Text = "24:00";
+            this.SitRemainedTime50.Visible = false;
+            // 
+            // SitRemainedTime51
+            // 
+            this.SitRemainedTime51.AutoSize = true;
+            this.SitRemainedTime51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime51.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime51.Location = new System.Drawing.Point(685, 494);
+            this.SitRemainedTime51.Name = "SitRemainedTime51";
+            this.SitRemainedTime51.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime51.TabIndex = 131;
+            this.SitRemainedTime51.Text = "24:00";
+            this.SitRemainedTime51.Visible = false;
+            // 
+            // SitRemainedTime52
+            // 
+            this.SitRemainedTime52.AutoSize = true;
+            this.SitRemainedTime52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime52.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime52.Location = new System.Drawing.Point(614, 494);
+            this.SitRemainedTime52.Name = "SitRemainedTime52";
+            this.SitRemainedTime52.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime52.TabIndex = 130;
+            this.SitRemainedTime52.Text = "24:00";
+            this.SitRemainedTime52.Visible = false;
+            // 
+            // SitRemainedTime53
+            // 
+            this.SitRemainedTime53.AutoSize = true;
+            this.SitRemainedTime53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime53.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime53.Location = new System.Drawing.Point(399, 494);
+            this.SitRemainedTime53.Name = "SitRemainedTime53";
+            this.SitRemainedTime53.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime53.TabIndex = 129;
+            this.SitRemainedTime53.Text = "24:00";
+            this.SitRemainedTime53.Visible = false;
+            // 
+            // SitRemainedTime54
+            // 
+            this.SitRemainedTime54.AutoSize = true;
+            this.SitRemainedTime54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime54.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime54.Location = new System.Drawing.Point(328, 494);
+            this.SitRemainedTime54.Name = "SitRemainedTime54";
+            this.SitRemainedTime54.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime54.TabIndex = 128;
+            this.SitRemainedTime54.Text = "24:00";
+            this.SitRemainedTime54.Visible = false;
+            // 
+            // SitRemainedTime55
+            // 
+            this.SitRemainedTime55.AutoSize = true;
+            this.SitRemainedTime55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime55.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime55.Location = new System.Drawing.Point(471, 494);
+            this.SitRemainedTime55.Name = "SitRemainedTime55";
+            this.SitRemainedTime55.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime55.TabIndex = 127;
+            this.SitRemainedTime55.Text = "24:00";
+            this.SitRemainedTime55.Visible = false;
+            // 
+            // SitRemainedTime56
+            // 
+            this.SitRemainedTime56.AutoSize = true;
+            this.SitRemainedTime56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime56.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime56.Location = new System.Drawing.Point(542, 494);
+            this.SitRemainedTime56.Name = "SitRemainedTime56";
+            this.SitRemainedTime56.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime56.TabIndex = 126;
+            this.SitRemainedTime56.Text = "24:00";
+            this.SitRemainedTime56.Visible = false;
+            // 
+            // SitRemainedTime57
+            // 
+            this.SitRemainedTime57.AutoSize = true;
+            this.SitRemainedTime57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime57.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime57.Location = new System.Drawing.Point(184, 494);
+            this.SitRemainedTime57.Name = "SitRemainedTime57";
+            this.SitRemainedTime57.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime57.TabIndex = 125;
+            this.SitRemainedTime57.Text = "24:00";
+            this.SitRemainedTime57.Visible = false;
+            // 
+            // SitRemainedTime58
+            // 
+            this.SitRemainedTime58.AutoSize = true;
+            this.SitRemainedTime58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime58.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime58.Location = new System.Drawing.Point(256, 494);
+            this.SitRemainedTime58.Name = "SitRemainedTime58";
+            this.SitRemainedTime58.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime58.TabIndex = 124;
+            this.SitRemainedTime58.Text = "24:00";
+            this.SitRemainedTime58.Visible = false;
+            // 
+            // SitRemainedTime59
+            // 
+            this.SitRemainedTime59.AutoSize = true;
+            this.SitRemainedTime59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime59.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime59.Location = new System.Drawing.Point(112, 494);
+            this.SitRemainedTime59.Name = "SitRemainedTime59";
+            this.SitRemainedTime59.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime59.TabIndex = 123;
+            this.SitRemainedTime59.Text = "24:00";
+            this.SitRemainedTime59.Visible = false;
+            // 
+            // SitRemainedTime60
+            // 
+            this.SitRemainedTime60.AutoSize = true;
+            this.SitRemainedTime60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime60.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime60.Location = new System.Drawing.Point(41, 494);
+            this.SitRemainedTime60.Name = "SitRemainedTime60";
+            this.SitRemainedTime60.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime60.TabIndex = 122;
+            this.SitRemainedTime60.Text = "24:00";
+            this.SitRemainedTime60.Visible = false;
+            // 
+            // SitRemainedTime61
+            // 
+            this.SitRemainedTime61.AutoSize = true;
+            this.SitRemainedTime61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime61.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime61.Location = new System.Drawing.Point(943, 494);
+            this.SitRemainedTime61.Name = "SitRemainedTime61";
+            this.SitRemainedTime61.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime61.TabIndex = 133;
+            this.SitRemainedTime61.Text = "24:00";
+            this.SitRemainedTime61.Visible = false;
+            // 
+            // SitRemainedTime62
+            // 
+            this.SitRemainedTime62.AutoSize = true;
+            this.SitRemainedTime62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime62.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime62.Location = new System.Drawing.Point(872, 494);
+            this.SitRemainedTime62.Name = "SitRemainedTime62";
+            this.SitRemainedTime62.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime62.TabIndex = 132;
+            this.SitRemainedTime62.Text = "24:00";
+            this.SitRemainedTime62.Visible = false;
+            // 
+            // SitRemainedTime63
+            // 
+            this.SitRemainedTime63.AutoSize = true;
+            this.SitRemainedTime63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime63.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime63.Location = new System.Drawing.Point(943, 410);
+            this.SitRemainedTime63.Name = "SitRemainedTime63";
+            this.SitRemainedTime63.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime63.TabIndex = 135;
+            this.SitRemainedTime63.Text = "24:00";
+            this.SitRemainedTime63.Visible = false;
+            // 
+            // SitRemainedTime64
+            // 
+            this.SitRemainedTime64.AutoSize = true;
+            this.SitRemainedTime64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime64.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime64.Location = new System.Drawing.Point(872, 410);
+            this.SitRemainedTime64.Name = "SitRemainedTime64";
+            this.SitRemainedTime64.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime64.TabIndex = 134;
+            this.SitRemainedTime64.Text = "24:00";
+            this.SitRemainedTime64.Visible = false;
+            // 
+            // SitRemainedTime65
+            // 
+            this.SitRemainedTime65.AutoSize = true;
+            this.SitRemainedTime65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime65.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime65.Location = new System.Drawing.Point(943, 323);
+            this.SitRemainedTime65.Name = "SitRemainedTime65";
+            this.SitRemainedTime65.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime65.TabIndex = 137;
+            this.SitRemainedTime65.Text = "24:00";
+            this.SitRemainedTime65.Visible = false;
+            // 
+            // SitRemainedTime66
+            // 
+            this.SitRemainedTime66.AutoSize = true;
+            this.SitRemainedTime66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime66.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime66.Location = new System.Drawing.Point(872, 323);
+            this.SitRemainedTime66.Name = "SitRemainedTime66";
+            this.SitRemainedTime66.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime66.TabIndex = 136;
+            this.SitRemainedTime66.Text = "24:00";
+            this.SitRemainedTime66.Visible = false;
+            // 
+            // SitRemainedTime67
+            // 
+            this.SitRemainedTime67.AutoSize = true;
+            this.SitRemainedTime67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime67.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime67.Location = new System.Drawing.Point(943, 234);
+            this.SitRemainedTime67.Name = "SitRemainedTime67";
+            this.SitRemainedTime67.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime67.TabIndex = 139;
+            this.SitRemainedTime67.Text = "24:00";
+            this.SitRemainedTime67.Visible = false;
+            // 
+            // SitRemainedTime68
+            // 
+            this.SitRemainedTime68.AutoSize = true;
+            this.SitRemainedTime68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime68.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime68.Location = new System.Drawing.Point(872, 234);
+            this.SitRemainedTime68.Name = "SitRemainedTime68";
+            this.SitRemainedTime68.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime68.TabIndex = 138;
+            this.SitRemainedTime68.Text = "24:00";
+            this.SitRemainedTime68.Visible = false;
+            // 
+            // SitRemainedTime69
+            // 
+            this.SitRemainedTime69.AutoSize = true;
+            this.SitRemainedTime69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime69.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime69.Location = new System.Drawing.Point(943, 145);
+            this.SitRemainedTime69.Name = "SitRemainedTime69";
+            this.SitRemainedTime69.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime69.TabIndex = 141;
+            this.SitRemainedTime69.Text = "24:00";
+            this.SitRemainedTime69.Visible = false;
+            // 
+            // SitRemainedTime70
+            // 
+            this.SitRemainedTime70.AutoSize = true;
+            this.SitRemainedTime70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(74)))), ((int)(((byte)(241)))));
+            this.SitRemainedTime70.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SitRemainedTime70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(181)))));
+            this.SitRemainedTime70.Location = new System.Drawing.Point(872, 145);
+            this.SitRemainedTime70.Name = "SitRemainedTime70";
+            this.SitRemainedTime70.Size = new System.Drawing.Size(56, 16);
+            this.SitRemainedTime70.TabIndex = 140;
+            this.SitRemainedTime70.Text = "24:00";
+            this.SitRemainedTime70.Visible = false;
+            // 
             // SitManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1111,9 +2170,11 @@
             this.Controls.Add(this.roundedPanel1);
             this.Name = "SitManagementForm";
             this.Text = "SitManagementForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SitManagementForm_FormClosed);
             this.Load += new System.EventHandler(this.SitManagementForm_Load);
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel2.ResumeLayout(false);
+            this.roundedPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1192,5 +2253,76 @@
         private System.Windows.Forms.Button SitNo3;
         private System.Windows.Forms.Button SitNo2;
         private System.Windows.Forms.Button SitNo1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label SitRemainedTime1;
+        private System.Windows.Forms.Label SitRemainedTime21;
+        private System.Windows.Forms.Label SitRemainedTime22;
+        private System.Windows.Forms.Label SitRemainedTime23;
+        private System.Windows.Forms.Label SitRemainedTime24;
+        private System.Windows.Forms.Label SitRemainedTime25;
+        private System.Windows.Forms.Label SitRemainedTime26;
+        private System.Windows.Forms.Label SitRemainedTime27;
+        private System.Windows.Forms.Label SitRemainedTime28;
+        private System.Windows.Forms.Label SitRemainedTime29;
+        private System.Windows.Forms.Label SitRemainedTime30;
+        private System.Windows.Forms.Label SitRemainedTime11;
+        private System.Windows.Forms.Label SitRemainedTime12;
+        private System.Windows.Forms.Label SitRemainedTime13;
+        private System.Windows.Forms.Label SitRemainedTime14;
+        private System.Windows.Forms.Label SitRemainedTime15;
+        private System.Windows.Forms.Label SitRemainedTime16;
+        private System.Windows.Forms.Label SitRemainedTime17;
+        private System.Windows.Forms.Label SitRemainedTime18;
+        private System.Windows.Forms.Label SitRemainedTime19;
+        private System.Windows.Forms.Label SitRemainedTime20;
+        private System.Windows.Forms.Label SitRemainedTime10;
+        private System.Windows.Forms.Label SitRemainedTime9;
+        private System.Windows.Forms.Label SitRemainedTime5;
+        private System.Windows.Forms.Label SitRemainedTime6;
+        private System.Windows.Forms.Label SitRemainedTime7;
+        private System.Windows.Forms.Label SitRemainedTime8;
+        private System.Windows.Forms.Label SitRemainedTime3;
+        private System.Windows.Forms.Label SitRemainedTime4;
+        private System.Windows.Forms.Label SitRemainedTime2;
+        private System.Windows.Forms.Label SitRemainedTime69;
+        private System.Windows.Forms.Label SitRemainedTime70;
+        private System.Windows.Forms.Label SitRemainedTime67;
+        private System.Windows.Forms.Label SitRemainedTime68;
+        private System.Windows.Forms.Label SitRemainedTime65;
+        private System.Windows.Forms.Label SitRemainedTime66;
+        private System.Windows.Forms.Label SitRemainedTime63;
+        private System.Windows.Forms.Label SitRemainedTime64;
+        private System.Windows.Forms.Label SitRemainedTime61;
+        private System.Windows.Forms.Label SitRemainedTime62;
+        private System.Windows.Forms.Label SitRemainedTime51;
+        private System.Windows.Forms.Label SitRemainedTime52;
+        private System.Windows.Forms.Label SitRemainedTime53;
+        private System.Windows.Forms.Label SitRemainedTime54;
+        private System.Windows.Forms.Label SitRemainedTime55;
+        private System.Windows.Forms.Label SitRemainedTime56;
+        private System.Windows.Forms.Label SitRemainedTime57;
+        private System.Windows.Forms.Label SitRemainedTime58;
+        private System.Windows.Forms.Label SitRemainedTime59;
+        private System.Windows.Forms.Label SitRemainedTime60;
+        private System.Windows.Forms.Label SitRemainedTime41;
+        private System.Windows.Forms.Label SitRemainedTime42;
+        private System.Windows.Forms.Label SitRemainedTime43;
+        private System.Windows.Forms.Label SitRemainedTime44;
+        private System.Windows.Forms.Label SitRemainedTime45;
+        private System.Windows.Forms.Label SitRemainedTime46;
+        private System.Windows.Forms.Label SitRemainedTime47;
+        private System.Windows.Forms.Label SitRemainedTime48;
+        private System.Windows.Forms.Label SitRemainedTime49;
+        private System.Windows.Forms.Label SitRemainedTime50;
+        private System.Windows.Forms.Label SitRemainedTime31;
+        private System.Windows.Forms.Label SitRemainedTime32;
+        private System.Windows.Forms.Label SitRemainedTime33;
+        private System.Windows.Forms.Label SitRemainedTime34;
+        private System.Windows.Forms.Label SitRemainedTime35;
+        private System.Windows.Forms.Label SitRemainedTime36;
+        private System.Windows.Forms.Label SitRemainedTime37;
+        private System.Windows.Forms.Label SitRemainedTime38;
+        private System.Windows.Forms.Label SitRemainedTime39;
+        private System.Windows.Forms.Label SitRemainedTime40;
     }
 }

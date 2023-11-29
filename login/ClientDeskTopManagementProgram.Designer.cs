@@ -40,11 +40,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
+            this.ChangedUserInfo = new System.Windows.Forms.Button();
+            this.MenuOrderBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CDTMPEmergencyExitBtn
             // 
-            this.CDTMPEmergencyExitBtn.Location = new System.Drawing.Point(25, 360);
+            this.CDTMPEmergencyExitBtn.Location = new System.Drawing.Point(27, 352);
             this.CDTMPEmergencyExitBtn.Name = "CDTMPEmergencyExitBtn";
             this.CDTMPEmergencyExitBtn.Size = new System.Drawing.Size(166, 57);
             this.CDTMPEmergencyExitBtn.TabIndex = 0;
@@ -81,7 +83,7 @@
             // 
             // TestReceiveSelectedRowBtn
             // 
-            this.TestReceiveSelectedRowBtn.Location = new System.Drawing.Point(44, 259);
+            this.TestReceiveSelectedRowBtn.Location = new System.Drawing.Point(330, 134);
             this.TestReceiveSelectedRowBtn.Name = "TestReceiveSelectedRowBtn";
             this.TestReceiveSelectedRowBtn.Size = new System.Drawing.Size(132, 83);
             this.TestReceiveSelectedRowBtn.TabIndex = 4;
@@ -109,7 +111,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(308, 289);
+            this.button1.Location = new System.Drawing.Point(373, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 47);
             this.button1.TabIndex = 7;
@@ -119,7 +121,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(304, 342);
+            this.button2.Location = new System.Drawing.Point(369, 305);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 41);
             this.button2.TabIndex = 8;
@@ -134,7 +136,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(325, 223);
+            this.button3.Location = new System.Drawing.Point(387, 223);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 9;
@@ -142,11 +144,31 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ChangedUserInfo
+            // 
+            this.ChangedUserInfo.Location = new System.Drawing.Point(268, 352);
+            this.ChangedUserInfo.Name = "ChangedUserInfo";
+            this.ChangedUserInfo.Size = new System.Drawing.Size(159, 74);
+            this.ChangedUserInfo.TabIndex = 10;
+            this.ChangedUserInfo.Text = "회원정보 수정";
+            this.ChangedUserInfo.UseVisualStyleBackColor = true;
+            // 
+            // MenuOrderBtn
+            // 
+            this.MenuOrderBtn.Location = new System.Drawing.Point(37, 252);
+            this.MenuOrderBtn.Name = "MenuOrderBtn";
+            this.MenuOrderBtn.Size = new System.Drawing.Size(331, 71);
+            this.MenuOrderBtn.TabIndex = 11;
+            this.MenuOrderBtn.Text = "먹거리 주문";
+            this.MenuOrderBtn.UseVisualStyleBackColor = true;
+            // 
             // ClientDeskTopManagementProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 450);
+            this.Controls.Add(this.MenuOrderBtn);
+            this.Controls.Add(this.ChangedUserInfo);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -180,5 +202,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ChangedUserInfo;
+        private System.Windows.Forms.Button MenuOrderBtn;
     }
 }

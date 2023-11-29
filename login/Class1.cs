@@ -25,7 +25,9 @@ namespace login
 
         OracleConnection connection; // 트랜잭션때문에 추가한 객체1
         OracleTransaction transaction; // 수정/삽입/삭제 커밋을 위한 트랜잭션
+        OracleDataReader dataReader;
 
+        public OracleDataReader DataReader { get { return dataReader; } set { dataReader = value; } }
         public OracleCommand MyCommand { get { return myCommand; } set { myCommand = value; } }
         public OracleConnection Connection { get { return connection; } set { connection = value; } }
 
@@ -66,7 +68,7 @@ namespace login
             }
         }
 
-        public void ReadyParameter()
+        public void LetsUseParameter()
         {
             Connection = new OracleConnection(ConnectionString);
         }
