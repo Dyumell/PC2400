@@ -46,7 +46,7 @@
             this.CDTMPEmergencyExitBtn.Location = new System.Drawing.Point(24, 282);
             this.CDTMPEmergencyExitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CDTMPEmergencyExitBtn.Name = "CDTMPEmergencyExitBtn";
-            this.CDTMPEmergencyExitBtn.Size = new System.Drawing.Size(145, 46);
+            this.CDTMPEmergencyExitBtn.Size = new System.Drawing.Size(144, 59);
             this.CDTMPEmergencyExitBtn.TabIndex = 0;
             this.CDTMPEmergencyExitBtn.Text = "Emergency Exit";
             this.CDTMPEmergencyExitBtn.UseVisualStyleBackColor = true;
