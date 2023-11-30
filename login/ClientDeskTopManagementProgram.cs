@@ -6,16 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Oracle.DataAccess.Client;
 
-
 namespace login
-{ 
+{
 
     public partial class ClientDeskTopManagementProgram : Form // 고려사항 : 잔여시간 30 , 10 , 5 , 1 분때에 메세지 박스 출력
     {
+        string command;
         public void InsertPCUsage()
         {
             string command = "INSERT INTO pc_sit_usage (pc_sit_id, remained_time, user_id) VALUES (:pc_sit_id, :remained_time, :user_id)";
@@ -23,7 +24,7 @@ namespace login
             DBMPCUsage.LetsUseParameter();
             DBMPCUsage.Connection.Open();
 
-            DBMPCUsage.MyCommand = new OracleCommand(command ,DBMPCUsage.Connection);
+            DBMPCUsage.MyCommand = new OracleCommand(command, DBMPCUsage.Connection);
 
 
             DBMPCUsage.MyCommand.Parameters.Add("pc_sit_id", OracleDbType.Varchar2, 30).Value = accessedSitID;
@@ -79,7 +80,7 @@ namespace login
             DBMClient.ResultRows = DBMClient.DTable.Select("user_id = '" + loginedRow[0]["user_id"] + "'");
 
             MessageBox.Show(DBMClient.ResultRows[0]["remained_time"].ToString());
-            
+
         }
         public string CheckRemainedTime()
         {
@@ -98,8 +99,9 @@ namespace login
             // 잔여시간을 1분간격으로 업데이트
             UpdateRemainedTime();
             UpdatePCUsage();
+            CheckPCSitPowerStatus();
             labelCDTMPRemainedTime.Text = ConvertIntToTime(remainedTime);
-            
+
         }
 
         public void UpdateRemainedTime()
@@ -118,7 +120,7 @@ namespace login
                 remainedTime--;
 
                 DBMClient.ResultRows[0]["remained_time"] = remainedTime;
-                
+
 
                 DBMClient.TransactionOpen();
 
@@ -136,35 +138,36 @@ namespace login
                 }
 
             }
-            catch (DataException DE){
+            catch (DataException DE)
+            {
                 MessageBox.Show(DE.Message);
             }
-                
-            
+
+
         }
 
 
         public ClientDeskTopManagementProgram(DataRow[] resultRows) // 로그인된 계정정보를 받기위한 생성자
         {
 
-            
+
             InitializeComponent();
-           
+
             DisableCloseButton(this.Handle);
             this.loginedRow = resultRows;
-            
+
         }
 
         public ClientDeskTopManagementProgram(string accessedSitID)
         {
-            
+
 
             InitializeComponent();
             DisableCloseButton(this.Handle);
             this.accessedSitID = accessedSitID;
         }
 
-        public ClientDeskTopManagementProgram(DataRow[] resultRows ,string accessedSitID)
+        public ClientDeskTopManagementProgram(DataRow[] resultRows, string accessedSitID)
         {
 
             InitializeComponent();
@@ -172,8 +175,10 @@ namespace login
             this.loginedRow = resultRows;
             DataContainer.Instance.LoginedRow = this.loginedRow;
             this.accessedSitID = accessedSitID;
+
+
         }
-         // 위 생성자중 몇개는 추후에 삭제해야함
+        // 위 생성자중 몇개는 추후에 삭제해야함
 
 
         #region WindowsAPI 
@@ -223,16 +228,19 @@ namespace login
 
         private void ClientDeskTopManagementProgram_Load(object sender, EventArgs e)
         {
-           
+
             timer1.Start();
+           
             CheckRemainedTime();
             InsertPCUsage();
+
             labelCDTMPRemainedTime.Text = ConvertIntToTime(remainedTime);
-            
+
             DataContainer.Instance.ConvertedRemainedTime = ConvertIntToTime(remainedTime);
             labelCDTMPSitNo.Text = accessedSitID;
             labelCDTMPUserID.Text = "사용자 계정 : " + loginedRow[0]["user_id"].ToString();
             MessageBox.Show(accessedSitID);
+
         }
 
         private void button1_Click(object sender, EventArgs e) // 잔여시간 출력 테스트버튼
@@ -249,6 +257,7 @@ namespace login
         private void ClientDeskTopManagementProgram_FormClosed(object sender, FormClosedEventArgs e) // 폼 닫힐 시 타이머를 종료
         {
             timer1.Stop();
+           
             DeletePCUsage();
         }
 
@@ -265,5 +274,59 @@ namespace login
             UpdatePCUsage();
             MessageBox.Show(DataContainer.Instance.LoginedRow[0]["user_id"].ToString() + " " + DataContainer.Instance.ConvertedRemainedTime);
         }
+
+        private void CheckPCSitPowerStatus()
+        {
+            command = "SELECT PC_SIT_ID, PC_POWER FROM PC_SIT_INFO WHERE PC_SIT_ID = :PC_SIT_ID AND PC_POWER = '켜짐'";
+            DBManager DBMPCSit = new DBManager(command);
+            DBMPCSit.LetsUseParameter();
+            DBMPCSit.Connection.Open();
+            DBMPCSit.MyCommand = new OracleCommand(command, DBMPCSit.Connection);
+
+            DBMPCSit.MyCommand.Parameters.Add("PC_SIT_ID", OracleDbType.Varchar2, 30).Value = accessedSitID;
+
+            DBMPCSit.DataReader = DBMPCSit.MyCommand.ExecuteReader();
+
+            if (!DBMPCSit.DataReader.Read()) // pc_sit_info 테이블에 해당 pc의 상태가 "꺼짐" 일시 shutdown 
+            {
+                ShutDownTargetPC();
+            }
+        }
+
+        private void ShutDownTargetPC() //종료버튼 누를시 데이터베이스에 pc 꺼짐상태로 해놓음
+        {
+
+            command = "UPDATE PC_SIT_INFO SET PC_POWER = '꺼짐' WHERE PC_SIT_ID = :PC_SIT_ID";
+            DBManager DBMPCSit = new DBManager(command);
+            DBMPCSit.LetsUseParameter();
+            DBMPCSit.Connection.Open();
+            DBMPCSit.MyCommand = new OracleCommand(command, DBMPCSit.Connection);
+
+            DBMPCSit.MyCommand.Parameters.Add("PC_SIT_ID", OracleDbType.Varchar2, 30).Value = accessedSitID;
+
+            DBMPCSit.MyCommand.ExecuteNonQuery();
+            DBMPCSit.Connection.Close();
+
+            MessageBox.Show("프로그램종료");
+
+        }
+
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            CheckPCSitPowerStatus();
+        }
+
+        private void MenuOrderBtn_Click(object sender, EventArgs e)
+        {
+            ClientDishMenuForm clientDishMenuForm = new ClientDishMenuForm();
+            clientDishMenuForm.Show();
+        }
+
+        // "shutdown" 명령어를 사용하여 컴퓨터 종료 - 프로젝트 완성전에 활성화시키자.
+        // string shutdownCommand = "shutdown /s /t 0";
+        // Process.Start("cmd.exe", "/c " + shutdownCommand);
     }
+
 }
+

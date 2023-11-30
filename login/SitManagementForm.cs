@@ -99,7 +99,9 @@ namespace login
 
                 for (int i = 0; i < 70; i++)
             {
-                if (SitPowerArray[i] == "켜짐")
+                if (SitPowerArray[i] == "켜짐") // 조인해서 피시좌석번호( pc_sit_id) , 피시전원상태 (pc_power)  ,피시고장상태 (pc_malfunction)
+                                                // 받아서 변수에 저장하고, pc_sit_id 에 저장된 001 부분만 추출해서, 라벨 NAME과 일치한경우 라벨이 visable 
+                                                // 하게하면 되는데, 시간이 부족해서 구현은 못하겠음.ㄴ
                 {
                     controlName = "SitNo" + (i + 1);
                     sitPowerOn[i] = controlName;

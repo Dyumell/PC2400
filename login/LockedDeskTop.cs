@@ -23,7 +23,7 @@ namespace login
     public partial class LockedDeskTop: Form
     {
         string accessedSitID;
-        string myIP = " 192.168.195.1";
+        
         DataSet DS; // 복사된 데이터를 저장하는 변수
         OracleCommandBuilder myCommandBuilder; // 명령문을 자동으로 짜주는 도움이변수
         OracleDataAdapter DBAdapter; // 그거
@@ -116,16 +116,22 @@ namespace login
                     MessageBox.Show(userTypeCodeString);
                     hookManager.UnHook(); // 반드시 사용종료시 훅을 종료
 
-                    string targetIpAddress = "192.168.58.1"; // PC001의 컴퓨터의 아이피
+                    string targetIpAddress1 = "192.168.58.1"; // PC001의 컴퓨터의 아이피
+                    string targetIpAddress2 = "192.168.153.229";
                     IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
 
 
                     foreach (IPAddress ip in localIPs)
                     {
-                        if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && ip.ToString() == targetIpAddress) // IP4v인지 확인,
+                        if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && ip.ToString() == targetIpAddress1) // IP4v인지 확인,
                                                                                                                                    // 타겟주소인지 확인
                         {
                             accessedSitID = "PC001";
+                        }
+
+                        else if ((ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && ip.ToString() == targetIpAddress2))
+                        {
+                            accessedSitID = "PC002";
                         }
                     }
 
@@ -176,39 +182,7 @@ namespace login
 
         private void connectTest_Click(object sender, EventArgs e) 
         {
-            /*// 첫번째 행의 유저 아이디를 메세지박스로 출력하는 연결 확인용 버튼
-        {
-            DS.Clear();  // DS가 차있으니 초기화
-            DBAdapter.Fill(DS, "user_account_login"); // DS에 로그인전용 사용자 계정 정보의 복사본을 저장
-
-            // DataTable 가져오기
-            userTable = DS.Tables["user_account_login"];
-
-            // 첫 번째 행의 user_id 가져오기
-            if (userTable != null && userTable.Rows.Count > 0)
-            {
-                string userId = userTable.Rows[0]["user_id"].ToString();
-
-                // 메시지 박스에 출력
-                MessageBox.Show($"검색된 유저 아이디: {userId}");
-            }
-            else
-            {
-                MessageBox.Show("검색된 유저 아이디가 없습니다.");
-            }
-            */
-            string targetIpAddress = "192.168.58.1";
-            IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
-
-
-            foreach (IPAddress ip in localIPs)
-            {
-                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && ip.ToString() == targetIpAddress)
-                {
-                    accessedSitID = "PC001";
-                }
-            }
-                MessageBox.Show(accessedSitID);
+         
         }
 
 
