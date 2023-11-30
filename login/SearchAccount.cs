@@ -22,6 +22,8 @@ namespace login
         DataTable resultUserIDTable; // 검색버튼 4개에 의해 자주 쓰일 것
         DataRow[] resultRows; // 검색버튼 4개에 의해 자주 쓰일 것
 
+        private string selectedUserID; // 선택된 사용자 ID를 저장하는 변수
+
         public SearchAccount()
         {
             DB_Open();
@@ -48,7 +50,7 @@ namespace login
             }
         }
 
-        private void SearchButtonClick(string columnName, TextBox textBox)
+        private void SearchButtonClick(string columnName, TextBox textBox) // 검색 중복 내용 함수화
         {
             listViewSearchResult.Items.Clear(); // 리스트뷰 초기화
             DS.Clear(); // DS 초기화
@@ -92,120 +94,116 @@ namespace login
             SearchButtonClick("user_email", txtSearchUserMail);
         }
 
-        /**
-        private void SearchUserID_Click(object sender, EventArgs e) // 아이디로 검색하기 버튼
-        {
-            listViewSearchResult.Items.Clear(); // 리스트뷰 초기화
-            DS.Clear(); // DS 초기화
-            DBAdapter.Fill(DS, "JoinedData"); // DS에 쿼리한결과담음
-            resultUserIDTable = DS.Tables["JoinedData"]; // 복사본을 DataTable 변수에 할당
-            resultRows // 할당된 테이블에서 쿼리를 적용하기 위한 DataRow변수
-            = resultUserIDTable.Select("user_id like '%" + txtSearchUserID.Text + "%'"); // DataRow[] 를 초기화할때는 Array.Clear(resultRow, 0, resultRow.length) 사용
-
-
-
-            foreach (DataRow dr in resultRows) // foreach문을 이용해서, 쿼리의 결과를 리스트뷰에 출력
-            {
-                ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
-
-                // 나머지 열에 대해 서브아이템 추가
-                for (int i = 1; i < resultUserIDTable.Columns.Count; i++) // 만약 위처럼 첫번째열을 첫번째 서브아이템으로 추가하는 방식을 
-                {                                                         // 사용하지 않을 시 리스트뷰가 전부 한칸씩 밀리게된다.
-                    item.SubItems.Add(dr[i].ToString());
-                }
-
-                listViewSearchResult.Items.Add(item);
-            }
-        }
-
-
-        private void SearchUserNameBtn_Click(object sender, EventArgs e)
-        {
-            listViewSearchResult.Items.Clear();
-            DS.Clear();
-            DBAdapter.Fill(DS, "JoinedData");
-            resultUserIDTable = DS.Tables["JoinedData"];
-            resultRows
-    = resultUserIDTable.Select("user_name like '%" + txtSearchUserName.Text + "%'");
-
-            foreach (DataRow dr in resultRows)
-            {
-                ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
-
-                // 나머지 열에 대해 서브아이템 추가
-                for (int i = 1; i < resultUserIDTable.Columns.Count; i++) // 만약 위처럼 첫번째열을 첫번째 서브아이템으로 추가하는 방식을 
-                {                                                         // 사용하지 않을 시 리스트뷰가 전부 한칸씩 밀리게된다.
-                    item.SubItems.Add(dr[i].ToString());
-                }
-        
-                listViewSearchResult.Items.Add(item);
-            }
-        }
-
-        private void SearchUserPhoneBtn_Click(object sender, EventArgs e)
-        {
-            listViewSearchResult.Items.Clear();
-            DS.Clear();
-            DBAdapter.Fill(DS, "JoinedData");
-            resultUserIDTable = DS.Tables["JoinedData"];
-            resultRows
-    = resultUserIDTable.Select("user_phone_num like '%" + txtSearchUserPhoneNum.Text + "%'");
-
-            foreach (DataRow dr in resultRows)
-            {
-                ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
-
-                // 나머지 열에 대해 서브아이템 추가
-                for (int i = 1; i < resultUserIDTable.Columns.Count; i++)
-                {
-                    item.SubItems.Add(dr[i].ToString());
-                }
-
-                listViewSearchResult.Items.Add(item);
-
-            }
-        }
-
-        private void SearchUserMailBtn_Click(object sender, EventArgs e)
-        {
-            listViewSearchResult.Items.Clear();
-            DS.Clear();
-            DBAdapter.Fill(DS, "JoinedData");
-            resultUserIDTable = DS.Tables["JoinedData"];
-            resultRows
-                        = resultUserIDTable.Select("user_email like '%" + txtSearchUserMail.Text + "%'");
-            foreach (DataRow dr in resultRows)
-            {
-                ListViewItem item = new ListViewItem(dr[0].ToString()); // 첫 번째 열을 첫 번째 서브아이템으로 추가
-
-                // 나머지 열에 대해 서브아이템 추가
-                for (int i = 1; i < resultUserIDTable.Columns.Count; i++)
-                {
-                    item.SubItems.Add(dr[i].ToString());
-                }
-
-                listViewSearchResult.Items.Add(item);
-
-            }
-        }
-        **/
-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewSearchResult.SelectedIndices.Count > 0)
             {
                 int selectedIndex = listViewSearchResult.SelectedIndices[0]; // 첫 번째 선택된 아이템의 인덱스
                 ListViewItem selectedItem = listViewSearchResult.Items[selectedIndex]; // 선택된 아이템
-                string column1Value = selectedItem.SubItems[0].Text;
-
-                MessageBox.Show($"Selected: Column1 - {column1Value}");
+                // string column1Value = selectedItem.SubItems[0].Text;
+                // MessageBox.Show($"Selected: Column1 - {column1Value}");
+                selectedUserID = selectedItem.SubItems[0].Text; // 선택한 사용자 ID 저장
+                MessageBox.Show($"선택된 계정: 사용자 ID - {selectedUserID}");
 
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) //  사용내역조회버튼 -선행작업필요: 좌석관리디스플레이, 피시정보등
+        private void button2_Click(object sender, EventArgs e) // 사용내역조회버튼 -선행작업필요: 좌석관리디스플레이, 피시정보등
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e) // 계정삭제버튼(삭제 완료 후 조회를 다시 하면 삭제된 데이터 리스트뷰에서 제거)
+        {
+            string deleteQuery = $"DELETE FROM user_account_login WHERE user_id = '{selectedUserID}'";
+            if (!string.IsNullOrEmpty(selectedUserID))
+            {
+                try
+                {
+                    using (OracleConnection connection = new OracleConnection("User Id=chris; Password = 1111; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)));"))
+                    {
+                        connection.Open();
+
+                        using (OracleCommand command = new OracleCommand(deleteQuery, connection))
+                        {
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show($"계정 삭제 완료: 사용자 ID - {selectedUserID}");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"계정 삭제 실패: 사용자 ID - {selectedUserID}");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"계정 삭제 중 오류 발생: {ex.Message}");
+                }
+
+                selectedUserID = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("삭제할 계정을 선택하지 않았습니다.");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e) // 계정 비밀번호 변경 버튼 --> 변경 폼 이동
+        {
+            if (!string.IsNullOrEmpty(selectedUserID))
+            {
+                // 비밀번호 변경 폼을 생성하고 표시
+                ChangePwdForm changePasswordForm = new ChangePwdForm();
+                DialogResult result = changePasswordForm.ShowDialog();
+
+                // 사용자가 확인을 누른 경우
+                if (result == DialogResult.OK)
+                {
+                    string newPassword = changePasswordForm.NewPassword;
+
+                    // 데이터베이스에서 선택된 사용자의 비밀번호 업데이트
+                    UpdatePassword(selectedUserID, newPassword);
+                }
+            }
+            else
+            {
+                MessageBox.Show("비밀번호를 변경할 사용자를 선택하세요.");
+            }
+        }
+
+        private void UpdatePassword(string userID, string newPassword) // 계정 비밀번호 업데이트 함수
+        {
+            try
+            {
+                string updateQuery = $"UPDATE user_account_query SET user_pwd = '{newPassword}' WHERE user_id = '{userID}'";
+
+                using (OracleConnection connection = new OracleConnection("User Id=chris; Password = 1111; Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)));"))
+                {
+                    connection.Open();
+
+                    using (OracleCommand command = new OracleCommand(updateQuery, connection))
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show($"비밀번호 변경 완료: 사용자 ID - {userID}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"비밀번호 변경 실패: 사용자 ID - {userID}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"비밀번호 변경 중 오류 발생: {ex.Message}");
+            }
         }
     }
 }
