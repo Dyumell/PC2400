@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtSitPower = new System.Windows.Forms.Label();
             this.txtSitMalfunction = new System.Windows.Forms.Label();
             this.txtSelectedSitNo = new System.Windows.Forms.Label();
             this.txtLoginedUser = new System.Windows.Forms.Label();
             this.txtRemainedTime = new System.Windows.Forms.Label();
             this.ForcedPowerOffBtn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtSitPower
@@ -83,19 +86,35 @@
             // 
             // ForcedPowerOffBtn
             // 
-            this.ForcedPowerOffBtn.Location = new System.Drawing.Point(410, 117);
+            this.ForcedPowerOffBtn.Location = new System.Drawing.Point(327, 90);
             this.ForcedPowerOffBtn.Name = "ForcedPowerOffBtn";
-            this.ForcedPowerOffBtn.Size = new System.Drawing.Size(75, 23);
+            this.ForcedPowerOffBtn.Size = new System.Drawing.Size(158, 50);
             this.ForcedPowerOffBtn.TabIndex = 5;
-            this.ForcedPowerOffBtn.Text = "button1";
+            this.ForcedPowerOffBtn.Text = "강제종료";
             this.ForcedPowerOffBtn.UseVisualStyleBackColor = true;
             this.ForcedPowerOffBtn.Click += new System.EventHandler(this.ForcedPowerOffBtn_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(377, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // PCSitStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 249);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ForcedPowerOffBtn);
             this.Controls.Add(this.txtRemainedTime);
             this.Controls.Add(this.txtLoginedUser);
@@ -117,5 +136,7 @@
         private System.Windows.Forms.Label txtLoginedUser;
         private System.Windows.Forms.Label txtRemainedTime;
         private System.Windows.Forms.Button ForcedPowerOffBtn;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button1;
     }
 }
